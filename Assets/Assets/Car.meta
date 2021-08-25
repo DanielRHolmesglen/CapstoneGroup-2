@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Assets/Car.meta
 guid: aca7b2fd3844fe941b94deaa52376a65
 folderAsset: yes
+=======
+guid: 7725109d4f6677c489c12db985734253
+>>>>>>> main:Assets/Scenes/KyeSceneTest.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
