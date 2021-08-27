@@ -1307,6 +1307,8 @@ MonoBehaviour:
   maxSteeringAngle: 30
   motorForce: 1000
   brakeForce: 0
+  speed: 10
+  turningSpeed: 5
   mass: 0
 --- !u!23 &6407457316564272927
 MeshRenderer:
