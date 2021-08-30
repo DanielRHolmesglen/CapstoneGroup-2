@@ -6,115 +6,118 @@ using Liminal.SDK.VR.Input;
 
 public class CarController : MonoBehaviour
 {
-    /*  ----- CarController Class -----
-     * 
+	/*  ----- CarController Class -----
+     * g_ is for global variables
      * 
      * 
      * 
      * 
      * 
      */
+	private float g_horizontalInput, g_verticalInput, g_steeringAngle;
+	private bool g_isBreaking;
 
-    private float horizontalInput;
-    private float verticalInput;
-    private float steerAngle;
-    private bool isBreaking;
+	public WheelCollider frontLeftWheelC, frontRightWheelC, rearLeftWheelC, rearRightWheelC;
+	public Transform frontLeftWheelT, frontRightWheelT, rearLeftWheelT, rearRightWheelT;
+	public float maxSteerAngle = 30f;
+	public float motorForce = 50f;
+	public float brakeForce = 0f;
+	private Rigidbody carRigibody;
+	private Vector3 carDirection;
 
-    public WheelCollider frontLeftWheelCollider;
-    public WheelCollider frontRightWheelCollider;
-    public WheelCollider rearLeftWheelCollider;
-    public WheelCollider rearRightWheelCollider;
-    public Transform frontLeftWheelTransform;
-    public Transform frontRightWheelTransform;
-    public Transform rearLeftWheelTransform;
-    public Transform rearRightWheelTransform;
-
-    public float maxSteeringAngle = 30f;
-    public float motorForce = 50f;
-    public float brakeForce = 0f;
-    
-    public float speed, turningSpeed;
-    Vector3 direction;
-    Quaternion rotation;
-    Rigidbody carRigibody;
-
-    /* ----- For fixing car flipping issue -----
+	/* ----- For fixing car flipping issue -----
      * Fixed by moving center of the mass up
      * public float mass = -0.9f;   >> for normal in unity
      */
-    public float mass = 0f;
+	private float mass = 0f;
 
-    void Start()
-    {
-        carRigibody = GetComponent<Rigidbody>();
-        carRigibody.centerOfMass = new Vector3(0f, mass, 0f);
-    }
+	void Start()
+	{
+		carRigibody = GetComponent<Rigidbody>();
+		carRigibody.centerOfMass = new Vector3(0f, mass, 0f);
+	}
 
-    private void FixedUpdate()
-    {
-        GetInput();
-        HandleMotor();
-        HandleSteering();
-        UpdateWheels();
-    }
+	private void FixedUpdate()
+	{
+		GetInput();
+		Steer();
+		Accelerate();
+		UpdateAllWheelPositions();
+	}
 
-    private void GetInput()
-    {
-        /* ----- Car movement -----
+	public void GetInput()
+	{
+		/* ----- Get input for car movement -----
          * Horizontal is to move left and right
          * Vertical is to move forward and back
          */
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
-        isBreaking = Input.GetKey(KeyCode.Space);
+		var primaryInput = VRDevice.Device.PrimaryInputDevice;
+		var inputsFromVR = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+		var trigger = primaryInput.GetAxis1D(VRButton.Trigger);
+		g_isBreaking = Input.GetKey(KeyCode.Space);
 
-        var primaryInput = VRDevice.Device.PrimaryInputDevice;
-        var inputs = new Vector2(horizontalInput, verticalInput); 
-        var trigger = primaryInput.GetAxis1D(VRButton.Trigger);
-        isBreaking = Input.GetKey(KeyCode.Space);
+		if (trigger > 0.01)
+		{
+			g_horizontalInput = inputsFromVR.x;
+			g_verticalInput = inputsFromVR.y;
 
-        if(trigger > 0.01 || isBreaking)
-        {
-            direction.Set(inputs.x, 0, inputs.y);
-            rotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, turningSpeed);
-            carRigibody.AddForce(transform.forward * speed, ForceMode.Acceleration);
-        }
-    }
+			carDirection.Set(inputsFromVR.x, 0, inputsFromVR.y);
+			transform.Translate(carDirection * motorForce * Time.deltaTime);
+		}
+		else
+		{
+			g_horizontalInput = Input.GetAxis("Horizontal");
+			g_verticalInput = Input.GetAxis("Vertical");
 
-    private void HandleSteering()
-    {
-        steerAngle = maxSteeringAngle * horizontalInput;
-        frontLeftWheelCollider.steerAngle = steerAngle;
-        frontRightWheelCollider.steerAngle = steerAngle;
-    }
+			//carDirection.Set(g_horizontalInput, 0, g_verticalInput);
+			//transform.Translate(carDirection * motorForce * Time.deltaTime);
+		}
+	}
 
-    private void HandleMotor()
-    {
-        frontLeftWheelCollider.motorTorque = verticalInput * motorForce;
-        frontRightWheelCollider.motorTorque = verticalInput * motorForce;
+	private void Steer()
+	{
+		if (g_horizontalInput != 0)
+		{
+			g_steeringAngle = maxSteerAngle * g_horizontalInput;
+			frontRightWheelC.steerAngle = g_steeringAngle;
+			frontLeftWheelC.steerAngle = g_steeringAngle;
+		}
+		else
+		{
+			g_steeringAngle = 0;
+			frontRightWheelC.steerAngle = g_steeringAngle;
+			frontLeftWheelC.steerAngle = g_steeringAngle;
+		}
+	}
 
-        brakeForce = isBreaking ? 3000f : 0f;
-        frontLeftWheelCollider.brakeTorque = brakeForce;
-        frontRightWheelCollider.brakeTorque = brakeForce;
-        rearLeftWheelCollider.brakeTorque = brakeForce;
-        rearRightWheelCollider.brakeTorque = brakeForce;
-    }
+	private void Accelerate()
+	{
+		frontRightWheelC.motorTorque = g_verticalInput * motorForce;
+		frontLeftWheelC.motorTorque = g_verticalInput * motorForce;
 
-    private void UpdateWheels()
-    {
-        UpdateWheelPos(frontLeftWheelCollider, frontLeftWheelTransform);
-        UpdateWheelPos(frontRightWheelCollider, frontRightWheelTransform);
-        UpdateWheelPos(rearLeftWheelCollider, rearLeftWheelTransform);
-        UpdateWheelPos(rearRightWheelCollider, rearRightWheelTransform);
-    }
+		brakeForce = g_isBreaking ? 3000f : 0f;
+		frontLeftWheelC.brakeTorque = brakeForce;
+		frontRightWheelC.brakeTorque = brakeForce;
+		rearLeftWheelC.brakeTorque = brakeForce;
+		rearRightWheelC.brakeTorque = brakeForce;
+	}
 
-    private void UpdateWheelPos(WheelCollider wheelCollider, Transform trans)
-    {
-        Vector3 pos;
-        Quaternion rot;
-        wheelCollider.GetWorldPose(out pos, out rot);
-        trans.rotation = rot;
-        trans.position = pos;
-    }
+	private void UpdateAllWheelPositions()
+	{
+		UpdateWheelPosition(frontRightWheelC, frontRightWheelT);
+		UpdateWheelPosition(frontLeftWheelC, frontLeftWheelT);
+		UpdateWheelPosition(rearRightWheelC, rearRightWheelT);
+		UpdateWheelPosition(rearLeftWheelC, rearLeftWheelT);
+	}
+
+	private void UpdateWheelPosition(WheelCollider _collider, Transform _transform)
+	{
+		Vector3 _pos;
+		Quaternion _quat;
+
+		_collider.GetWorldPose(out _pos, out _quat);
+
+		_transform.position = _pos;
+		_transform.rotation = _quat;
+	}
 }
