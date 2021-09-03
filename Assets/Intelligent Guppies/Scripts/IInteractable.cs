@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IInteractable
 {
-    void spawnWhenRingCollected();
+    void SpawnObject();
 
-    void changeColor();
+    void ChangeColor();
 }

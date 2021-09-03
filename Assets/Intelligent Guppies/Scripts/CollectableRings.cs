@@ -13,21 +13,18 @@ public class CollectableRings : MonoBehaviour, IInteractable
         GetComponent<SphereCollider>().isTrigger = true;
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider _other)
     {
-        if (other.gameObject)
+        if (_other.gameObject)
         {
-            spawnWhenRingCollected();
+            SpawnObject();
             gameObject.SetActive(false);
         }
     }
 
-    public void changeColor()
-    {
+    public void ChangeColor() { }
 
-    }
-
-    public void spawnWhenRingCollected()
+    public void SpawnObject()
     {
         Instantiate(objectToBeSpawned, spawnPoint.position, spawnPoint.rotation);
     }

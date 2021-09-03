@@ -7,21 +7,21 @@ using Liminal.SDK.VR.Input;
 public class CarController : MonoBehaviour
 {
 	/*  ----- CarController Class -----
-     * g_ is for global variables
+     * 
      * 
      * 
      * 
      * 
      * 
      */
-	private float g_horizontalInput, g_verticalInput, g_steeringAngle;
-	private bool g_isBreaking;
+	private float horizontalInput, verticalInput, steeringAngle;
+	private bool isBreaking;
 
 	public WheelCollider frontLeftWheelC, frontRightWheelC, rearLeftWheelC, rearRightWheelC;
 	public Transform frontLeftWheelT, frontRightWheelT, rearLeftWheelT, rearRightWheelT;
 	public float maxSteerAngle = 30f;
-	public float motorForce = 50f;
-	public float brakeForce = 0f;
+	public float motorForce = 300f;
+	private float brakeForce = 0f;
 	private Rigidbody carRigibody;
 	private Vector3 carDirection;
 
@@ -54,48 +54,49 @@ public class CarController : MonoBehaviour
 		var primaryInput = VRDevice.Device.PrimaryInputDevice;
 		var inputsFromVR = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 		var trigger = primaryInput.GetAxis1D(VRButton.Trigger);
-		g_isBreaking = Input.GetKey(KeyCode.Space);
+		isBreaking = Input.GetKey(KeyCode.Space);
 
 		if (trigger > 0.01)
 		{
-			g_horizontalInput = inputsFromVR.x;
-			g_verticalInput = inputsFromVR.y;
+			horizontalInput = inputsFromVR.x;
+			verticalInput = inputsFromVR.y;
 
 			carDirection.Set(inputsFromVR.x, 0, inputsFromVR.y);
 			transform.Translate(carDirection * motorForce * Time.deltaTime);
 		}
 		else
 		{
-			g_horizontalInput = Input.GetAxis("Horizontal");
-			g_verticalInput = Input.GetAxis("Vertical");
+			horizontalInput = Input.GetAxis("Horizontal");
+			verticalInput = Input.GetAxis("Vertical");
 
-			//carDirection.Set(g_horizontalInput, 0, g_verticalInput);
+			//carDirection.Set(horizontalInput, 0, verticalInput);
 			//transform.Translate(carDirection * motorForce * Time.deltaTime);
 		}
 	}
 
 	private void Steer()
 	{
-		if (g_horizontalInput != 0)
+		if (horizontalInput != 0)
 		{
-			g_steeringAngle = maxSteerAngle * g_horizontalInput;
-			frontRightWheelC.steerAngle = g_steeringAngle;
-			frontLeftWheelC.steerAngle = g_steeringAngle;
+			steeringAngle = maxSteerAngle * horizontalInput;
+			frontRightWheelC.steerAngle = steeringAngle;
+			frontLeftWheelC.steerAngle = steeringAngle;
 		}
 		else
 		{
-			g_steeringAngle = 0;
-			frontRightWheelC.steerAngle = g_steeringAngle;
-			frontLeftWheelC.steerAngle = g_steeringAngle;
+			steeringAngle = 0;
+			frontRightWheelC.steerAngle = steeringAngle;
+			frontLeftWheelC.steerAngle = steeringAngle;
 		}
 	}
 
 	private void Accelerate()
 	{
-		frontRightWheelC.motorTorque = g_verticalInput * motorForce;
-		frontLeftWheelC.motorTorque = g_verticalInput * motorForce;
+		/* To handle accelaration for the front wheels */
+		frontRightWheelC.motorTorque = verticalInput * motorForce;
+		frontLeftWheelC.motorTorque = verticalInput * motorForce;
 
-		brakeForce = g_isBreaking ? 3000f : 0f;
+		brakeForce = isBreaking ? 3000f : 0f;
 		frontLeftWheelC.brakeTorque = brakeForce;
 		frontRightWheelC.brakeTorque = brakeForce;
 		rearLeftWheelC.brakeTorque = brakeForce;
@@ -104,6 +105,9 @@ public class CarController : MonoBehaviour
 
 	private void UpdateAllWheelPositions()
 	{
+		/* To update the rotation of the wheels (how the wheels look)
+		 * By calling UpdateWheelPosition function
+		 */
 		UpdateWheelPosition(frontRightWheelC, frontRightWheelT);
 		UpdateWheelPosition(frontLeftWheelC, frontLeftWheelT);
 		UpdateWheelPosition(rearRightWheelC, rearRightWheelT);
