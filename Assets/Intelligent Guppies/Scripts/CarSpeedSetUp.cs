@@ -9,7 +9,7 @@ public class CarSpeedSetUp : MonoBehaviour, IInteractable
     private float speedChanged = 500f;
     private float currentSpeed, newSpeed;
     public GameObject speedChangedEffect;
-    private float timeBeforeReverseBack = 4f;
+    private WaitForSeconds timeBeforeReverseBack = new WaitForSeconds(4f);
 
     void Start()
     {
@@ -43,7 +43,7 @@ public class CarSpeedSetUp : MonoBehaviour, IInteractable
         Debug.Log("Current speed = " + carControllerAccessd.motorForce);
         carControllerAccessd.motorForce += speedChanged;
         Debug.Log("new speed = " + carControllerAccessd.motorForce);
-        yield return new WaitForSeconds(2);
+        yield return timeBeforeReverseBack;
         carControllerAccessd.motorForce -= speedChanged;
         Debug.Log("current new speed = " + carControllerAccessd.motorForce);
     }

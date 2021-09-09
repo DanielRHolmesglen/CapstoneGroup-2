@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
-public class CollectableRings : MonoBehaviour, IInteractable
+public class CollectableItem : MonoBehaviour, IInteractable
 {
     public Transform spawnPoint;
     public GameObject objectToBeSpawned;
