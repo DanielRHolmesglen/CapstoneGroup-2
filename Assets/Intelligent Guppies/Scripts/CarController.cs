@@ -24,6 +24,7 @@ public class CarController : MonoBehaviour
 	private float brakeForce = 0f;
 	private Rigidbody carRigibody;
 	private Vector3 carDirection;
+	public GameObject targetForCamera;
 
 	/* ----- For fixing car flipping issue -----
      * Fixed by moving center of the mass up
@@ -35,6 +36,7 @@ public class CarController : MonoBehaviour
 	{
 		carRigibody = GetComponent<Rigidbody>();
 		carRigibody.centerOfMass = new Vector3(0f, mass, 0f);
+		targetForCamera = GameObject.Find("CameraTarget");
 	}
 
 	private void FixedUpdate()
@@ -68,6 +70,10 @@ public class CarController : MonoBehaviour
 		{
 			horizontalInput = Input.GetAxis("Horizontal");
 			verticalInput = Input.GetAxis("Vertical");
+
+			// for building in VR
+			// horizontalInput = inputsFromVR.x;
+			// verticalInput = inputsFromVR.y;
 
 			//carDirection.Set(horizontalInput, 0, verticalInput);
 			//transform.Translate(carDirection * motorForce * Time.deltaTime);
