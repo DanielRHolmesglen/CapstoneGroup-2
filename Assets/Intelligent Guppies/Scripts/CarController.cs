@@ -19,24 +19,30 @@ public class CarController : MonoBehaviour
 
 	public WheelCollider frontLeftWheelC, frontRightWheelC, rearLeftWheelC, rearRightWheelC;
 	public Transform frontLeftWheelT, frontRightWheelT, rearLeftWheelT, rearRightWheelT;
-	public float maxSteerAngle = 30f;
-	public float motorForce = 300f;
-	private float brakeForce = 0f;
+	private float maxSteerAngle, motorForce, brakeForce;
+	private Car _car;
+	//public float maxSteerAngle = 30f;
+	//public float motorForce = 300f;
+	//private float brakeForce = 0f;
 	private Rigidbody carRigibody;
 	private Vector3 carDirection;
-	public GameObject targetForCamera;
+	//public GameObject targetForCamera;
 
 	/* ----- For fixing car flipping issue -----
      * Fixed by moving center of the mass up
      * public float mass = -0.9f;   >> for normal in unity
      */
-	private float mass = 0f;
+	//private float mass = 0f;
 
 	void Start()
 	{
+		_car = gameObject.GetComponent<Car>();
 		carRigibody = GetComponent<Rigidbody>();
-		carRigibody.centerOfMass = new Vector3(0f, mass, 0f);
-		targetForCamera = GameObject.Find("CameraTarget");
+		carRigibody.centerOfMass = new Vector3(0f, _car.mass, 0f);
+		_car.targetForCamera = GameObject.Find("CameraLookAt");
+		maxSteerAngle = _car.maxSteerAngle;
+		motorForce = _car.motorForce;
+		brakeForce = _car.brakeForce;
 	}
 
 	private void FixedUpdate()

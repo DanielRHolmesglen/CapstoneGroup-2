@@ -5,10 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class ResetCarSpeed : MonoBehaviour
 {
-    private float speedChanged = 500f;
-    private float carCurrentSpeed;
+    private float carCurrentSpeed, carSpeedChanged;
+
     void Start()
     {
+        //_car = gameObject.GetComponent<Car>();
         GetComponent<BoxCollider>().isTrigger = true;
     }
 
@@ -23,21 +24,22 @@ public class ResetCarSpeed : MonoBehaviour
 
     void ResetSpeed(Collider _car)
     {
-        CarController carControllerAccessd = _car.GetComponent<CarController>();
-        carCurrentSpeed = carControllerAccessd.motorForce;
-        Debug.Log("Current speed = " + carCurrentSpeed);
+        Car carSpeed = _car.GetComponent<Car>();
+        carCurrentSpeed = carSpeed.motorForce;
+        carSpeedChanged = carSpeed.speedChanged;
+        Debug.Log("[Reset] current speed = " + carCurrentSpeed);
 
         if (carCurrentSpeed > 300)
         {
-            carCurrentSpeed -= speedChanged;
-            Debug.Log("current new speed = " + carCurrentSpeed);
-            carControllerAccessd.motorForce = carCurrentSpeed;
+            carCurrentSpeed -= carSpeedChanged;
+            Debug.Log("[Reset] current new speed = " + carCurrentSpeed);
+            carSpeed.motorForce = carCurrentSpeed;
         }
         else if (carCurrentSpeed < 300)
         {
-            carCurrentSpeed += speedChanged;
-            Debug.Log("current new speed = " + carCurrentSpeed);
-            carControllerAccessd.motorForce = carCurrentSpeed;
+            carCurrentSpeed += carSpeedChanged;
+            Debug.Log("[Reset] current new speed = " + carCurrentSpeed);
+            carSpeed.motorForce = carCurrentSpeed;
         }
     }
 }

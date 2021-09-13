@@ -4,11 +4,10 @@ using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
 
-public class CarSpeedSetUp : MonoBehaviour, IInteractable
+public class CarSpeedSetUp : MonoBehaviour
 {
-    private float speedChanged = 500f;
-    private float currentSpeed, newSpeed;
     public GameObject speedChangedEffect;
+    private float carCurrentSpeed, carSpeedChanged;
     private WaitForSeconds timeBeforeReverseBack = new WaitForSeconds(4f);
 
     void Start()
@@ -20,14 +19,25 @@ public class CarSpeedSetUp : MonoBehaviour, IInteractable
     {
         if (_other.gameObject)
         {
-            StartCoroutine(AdjustSpeed(_other));
+            SetUpNewSpeed(_other);
+            //StartCoroutine(AdjustSpeed(_other));
             gameObject.SetActive(false);
         }
     }
 
-    public void ChangeColor() { }
+    void SetUpNewSpeed(Collider _car)
+    {
+        Instantiate(speedChangedEffect, transform.position, transform.rotation);
+        Car carSpeed = _car.GetComponent<Car>();
+        carCurrentSpeed = carSpeed.motorForce;
+        carSpeedChanged = carSpeed.speedChanged;
 
-    public void SpawnObject() { }
+        Debug.Log("Current speed = " + carCurrentSpeed);
+        carCurrentSpeed += carSpeedChanged;
+        Debug.Log("new speed after power up = " + carCurrentSpeed);
+        carSpeed.motorForce = carCurrentSpeed;
+        Debug.Log("new current speed after power up = " + carSpeed.motorForce);
+    }
 
     IEnumerator AdjustSpeed(Collider _car) 
     {
@@ -39,13 +49,16 @@ public class CarSpeedSetUp : MonoBehaviour, IInteractable
          */
         
         Instantiate(speedChangedEffect, transform.position, transform.rotation);
-        CarController carControllerAccessd = _car.GetComponent<CarController>();
-        Debug.Log("Current speed = " + carControllerAccessd.motorForce);
-        carControllerAccessd.motorForce += speedChanged;
-        Debug.Log("new speed = " + carControllerAccessd.motorForce);
+        //CarController carControllerAccessd = _car.GetComponent<CarController>();
+        Car carSpeed = _car.GetComponent<Car>();
+        carCurrentSpeed = carSpeed.motorForce;
+        carSpeedChanged = carSpeed.speedChanged;
+        Debug.Log("Current speed = " + carCurrentSpeed);
+        carSpeed.motorForce += carSpeedChanged;
+        Debug.Log("new speed = " + carCurrentSpeed);
         yield return timeBeforeReverseBack;
-        carControllerAccessd.motorForce -= speedChanged;
-        Debug.Log("current new speed = " + carControllerAccessd.motorForce);
-        // this comment is for push again for Daniel to see this script 
+        //carSpeed.motorForce -= carSpeedChanged;
+        //Debug.Log("current new speed = " + carCurrentSpeed);
+        // this comment is for push again for Daniel to see this script
     }
 }

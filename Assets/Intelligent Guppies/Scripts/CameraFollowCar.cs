@@ -43,17 +43,19 @@ public class CameraFollowCar : MonoBehaviour
     public GameObject cameraTarget;
     //public GameObject child;
     //public float speed = 5f;
-    public CarController _carController;
+    private CarController _carController;
+    private Car _car;
 
     void Start()
     {
         cameraTarget = GameObject.Find("CAR");
-        _carController = cameraTarget.GetComponent<CarController>();
+        //_carController = cameraTarget.GetComponent<CarController>();
+        _car = cameraTarget.GetComponent<Car>();
     }
 
     void FixedUpdate()
     {
-        gameObject.transform.position = _carController.targetForCamera.transform.GetChild(0).transform.position;
-        gameObject.transform.LookAt(_carController.targetForCamera.transform.GetChild(1).transform.position);
+        gameObject.transform.position = _car.targetForCamera.transform.GetChild(0).transform.position;
+        gameObject.transform.LookAt(_car.targetForCamera.transform.GetChild(1).transform.position);
     }
 }
