@@ -51,6 +51,7 @@ public class CarController : MonoBehaviour
 		Steer();
 		Accelerate();
 		UpdateAllWheelPositions();
+		UpdateWheelRotation();
 	}
 
 	public void GetInput()
@@ -126,6 +127,17 @@ public class CarController : MonoBehaviour
 		UpdateWheelPosition(rearLeftWheelC, rearLeftWheelT);
 	}
 
+	private void UpdateWheelRotation()
+    {
+		/* For fixing Kye's car wheel
+		 * comment this function if using another car
+		 */
+		RotationWheelCorrection(frontRightWheelT);
+		RotationWheelCorrection(frontLeftWheelT);
+		RotationWheelCorrection(rearRightWheelT);
+		RotationWheelCorrection(rearLeftWheelT);
+	}
+
 	private void UpdateWheelPosition(WheelCollider _collider, Transform _transform)
 	{
 		Vector3 _pos;
@@ -136,4 +148,12 @@ public class CarController : MonoBehaviour
 		_transform.position = _pos;
 		_transform.rotation = _quat;
 	}
+
+	private void RotationWheelCorrection(Transform transform)
+	{
+		Quaternion _rot = transform.rotation;
+		_rot = _rot * Quaternion.Euler(0, 0, -90);
+		transform.rotation = _rot;
+	}
+	// this comment is for test commit 17/9/2021
 }
