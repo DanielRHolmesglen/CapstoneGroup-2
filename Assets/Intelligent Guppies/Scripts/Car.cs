@@ -10,7 +10,7 @@ public class Car : MonoBehaviour
 	public float motorForce = 300f;
 	[HideInInspector]
 	public float brakeForce = 0f;
-	[HideInInspector]
+	//[HideInInspector]
 	public GameObject targetForCamera;
 
 	/* ----- For fixing car flipping issue -----
