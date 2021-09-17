@@ -74,12 +74,12 @@ public class CarController : MonoBehaviour
 		}
 		else
 		{
-			horizontalInput = Input.GetAxis("Horizontal");
-			verticalInput = Input.GetAxis("Vertical");
+			//horizontalInput = Input.GetAxis("Horizontal");
+			//verticalInput = Input.GetAxis("Vertical");
 
 			// for building in VR
-			// horizontalInput = inputsFromVR.x;
-			// verticalInput = inputsFromVR.y;
+			 horizontalInput = inputsFromVR.x;
+			 verticalInput = inputsFromVR.y;
 
 			//carDirection.Set(horizontalInput, 0, verticalInput);
 			//transform.Translate(carDirection * motorForce * Time.deltaTime);
