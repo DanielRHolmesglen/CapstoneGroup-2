@@ -48,7 +48,8 @@ public class CameraFollowCar : MonoBehaviour
 
     void Start()
     {
-        cameraTarget = GameObject.Find("CAR");
+        //cameraTarget = GameObject.Find("CAR");
+        cameraTarget = GameObject.Find("CarKye");
         //_carController = cameraTarget.GetComponent<CarController>();
         _car = cameraTarget.GetComponent<Car>();
     }
