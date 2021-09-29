@@ -6,8 +6,8 @@ public class Car : MonoBehaviour
 {
 	[HideInInspector]
 	public float maxSteerAngle = 5f;
-	[HideInInspector]
-	public float motorForce = 300f;
+	//[HideInInspector]
+	//public float motorForce = 10f;
 	[HideInInspector]
 	public float brakeForce = 0f;
 	//[HideInInspector]
@@ -19,6 +19,8 @@ public class Car : MonoBehaviour
      */
 	[HideInInspector]
 	public float mass = 0f;
-	[HideInInspector]
-	public float speedChanged = 500f;
+
+	public float speedChanged = 30f;
+	public float forwardSpeed = 25f;
+
 }

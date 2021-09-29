@@ -2456,14 +2456,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d86fd3d2f48cdf489239841c5ee97be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frontLeftWheelC: {fileID: 1547230824}
-  frontRightWheelC: {fileID: 1947992120}
-  rearLeftWheelC: {fileID: 455488563}
-  rearRightWheelC: {fileID: 1136915160}
-  frontLeftWheelT: {fileID: 2258062277345340425}
-  frontRightWheelT: {fileID: 7769867137580646793}
-  rearLeftWheelT: {fileID: 7917761317479833743}
-  rearRightWheelT: {fileID: 5192391203873140273}
+  forwardSpeed: 0
+  laneDistance: 4
 --- !u!114 &6198496633183026994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2477,11 +2471,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSteerAngle: 30
-  motorForce: 300
   brakeForce: 0
   targetForCamera: {fileID: 0}
   mass: 0
   speedChanged: 500
+  forwardSpeed: 20
 --- !u!23 &6407457316564272927
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2729,6 +2723,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2213466657733060790, guid: 0af178540d3ae4e47be630e5d46b341c,
+        type: 3}
+      propertyPath: forwardSpeed
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2213466657733060790, guid: 0af178540d3ae4e47be630e5d46b341c,
+        type: 3}
+      propertyPath: motorForce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2213466657733060790, guid: 0af178540d3ae4e47be630e5d46b341c,
+        type: 3}
+      propertyPath: carSpeed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2213466657733060788, guid: 0af178540d3ae4e47be630e5d46b341c,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2213466657733060791, guid: 0af178540d3ae4e47be630e5d46b341c,
+        type: 3}
+      propertyPath: speedChanged
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2213466657733060791, guid: 0af178540d3ae4e47be630e5d46b341c,
+        type: 3}
+      propertyPath: forwardSpeed
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0af178540d3ae4e47be630e5d46b341c, type: 3}
