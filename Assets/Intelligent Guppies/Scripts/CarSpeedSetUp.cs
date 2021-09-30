@@ -29,14 +29,14 @@ public class CarSpeedSetUp : MonoBehaviour
     {
         Instantiate(speedChangedEffect, transform.position, transform.rotation);
         Car carSpeed = _car.GetComponent<Car>();
-        carCurrentSpeed = carSpeed.forwardSpeed;
+        carCurrentSpeed = carSpeed.carSpeed;
         carSpeedChanged = carSpeed.speedChanged;
 
         Debug.Log("Current speed = " + carCurrentSpeed);
         carCurrentSpeed += carSpeedChanged;
         Debug.Log("new speed after power up = " + carCurrentSpeed);
-        carSpeed.forwardSpeed = carCurrentSpeed;
-        Debug.Log("new current speed after power up = " + carSpeed.forwardSpeed);
+        carSpeed.carSpeed = carCurrentSpeed;
+        Debug.Log("new current speed after power up = " + carSpeed.carSpeed);
     }
 
     /*IEnumerator AdjustSpeed(Collider _car) 

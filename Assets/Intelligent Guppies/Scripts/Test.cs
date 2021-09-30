@@ -13,6 +13,7 @@ public class Test : MonoBehaviour
     private int movingLane = 1;
     // the distance between two lanes
     public float laneDistance = 4;
+    private Car _car;
 
     void Start()
     {
