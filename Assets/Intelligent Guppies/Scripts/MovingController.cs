@@ -13,39 +13,21 @@ public class MovingController : MonoBehaviour
      * 
      */
 
-	//private Car _car;
 	private MovingObject _movingObject;
-	//private Rigidbody carRigibody;
-	private Vector3 carDirection;
 	private int movingLane;
 	private float laneDistance;
 
-	private CharacterController controller;
-
 	void Start()
 	{
-		//_car = gameObject.GetComponent<Car>();
 		_movingObject = gameObject.GetComponentInParent<MovingObject>();
 		movingLane = _movingObject.movingLane;
 		laneDistance = _movingObject.laneDistance;
-
-		//carRigibody = GetComponent<Rigidbody>();
-		//carRigibody.centerOfMass = new Vector3(0f, _car.mass, 0f);
-		//_movingObject.targetForCamera = GameObject.Find("CameraLookAt");
-		//controller = GetComponent<CharacterController>();
-		//horizontalInput = Input.GetAxis("Horizontal");
 	}
 
 	void Update()
 	{
-		//carDirection.z = _car.carSpeed;
 		GetInput();
 	}
-
-	//void FixedUpdate()
-	//{
-		//transform.Translate(carDirection * Time.fixedDeltaTime);
-	//}
 
 	public void GetInput()
 	{

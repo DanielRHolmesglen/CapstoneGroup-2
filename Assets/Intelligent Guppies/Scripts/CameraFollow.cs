@@ -4,63 +4,45 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    /*[SerializeField] private Vector3 offset = new Vector3(0, 0.1f, -0.4f);
-    [SerializeField] private Transform target;
-    [SerializeField] private float translateSpeed = 5f;
-
-    private void FixedUpdate()
-    {
-        HandleTranslation();
-    }
-
-    private void HandleTranslation()
-    {
-        var targetPosition = target.TransformPoint(offset);
-        transform.position = Vector3.Lerp(transform.position, targetPosition, translateSpeed * Time.deltaTime);
-    }*/
-
-    /*public GameObject cameraTarget;
-    public GameObject child;
-    public float speed = 5f;
-
-    void Awake()
-    {
-        cameraTarget = GameObject.Find("CAR");
-        child = cameraTarget.transform.Find("Camera Constraint").gameObject;
-    }
-
-    void FixedUpdate()
-    {
-        Follow();
-    }
-
-    void Follow()
-    {
-        gameObject.transform.position = Vector3.Lerp(transform.position, child.transform.position, Time.deltaTime * speed);
-        gameObject.transform.LookAt(cameraTarget.gameObject.transform.position);
-    }*/
-
-    public GameObject cameraTarget;
-    //public GameObject child;
-    //public float speed = 5f;
-    private CarController _carController;
-    private Car _car;
-    private MovingObject _movingObject;
+    private Transform cameraTarget;
+    private Vector3 cameraOffset;
 
     void Start()
     {
-        //cameraTarget = GameObject.Find("CAR");
-        cameraTarget = GameObject.Find("CarKye");
-        cameraTarget = GameObject.Find("Player");
-        //_carController = cameraTarget.GetComponent<CarController>();
-        //_car = cameraTarget.GetComponent<Car>();
-        _movingObject = cameraTarget.GetComponent<MovingObject>();
+        cameraTarget = GameObject.Find("Player").transform;
+        cameraOffset = transform.position - cameraTarget.position;
+    }
 
+    void Update()
+    {
+        Vector3 cameraPosition = new Vector3(transform.position.x, transform.position.y, 
+            cameraOffset.z + cameraTarget.position.z);
+        transform.position = cameraPosition;
+    }
+
+    /*
+    //private Vector3 offset = new Vector3(0, 0.1f, -0.4f);
+    public Vector3 offset;
+    private Transform target;
+    //public float speed = 25f;
+    public GameObject cameraTarget;
+    private Car _car;
+    private float cameraFollowingSpeed;
+
+    void Start()
+    {
+        //cameraTarget = GameObject.Find("Player");
+        //_car = cameraTarget.GetComponent<Car>();
+        _car = GameObject.Find("Player").GetComponentInChildren<Car>();
+        //cameraTarget = GameObject.Find("Player");
     }
 
     void FixedUpdate()
     {
-        gameObject.transform.position = _movingObject.targetForCamera.transform.GetChild(0).transform.position;
-        gameObject.transform.LookAt(_movingObject.targetForCamera.transform.GetChild(1).transform.position);
+        //cameraTarget.transform.position = transform.TransformPoint(offset);
+        cameraFollowingSpeed = _car.carSpeed;
+        gameObject.transform.position = transform.position + new Vector3(0, 0, Time.deltaTime * cameraFollowingSpeed);
+
     }
+    */
 }
