@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Liminal.SDK.VR;
+using Liminal.SDK.VR.Input;
 
 public class MovingController : MonoBehaviour
 {
@@ -41,9 +43,14 @@ public class MovingController : MonoBehaviour
          * Input.GetAxis("Horizontal") < 0 // gets left
          */
 
+		var primaryInput = VRDevice.Device.PrimaryInputDevice;
+		//var inputsFromVR = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+		//var trigger = primaryInput.GetAxis1D(VRButton.Trigger);
+
+
 		// get the input on which lane we should be
 		//if (Input.GetAxis("Horizontal") > 0)
-		if (Input.GetKeyDown(KeyCode.D))
+		if (Input.GetKeyDown(KeyCode.D) || primaryInput.GetButtonDown(VRButton.Two))
 		{
 			movingLane++;
 			if (movingLane == 3)
@@ -53,7 +60,7 @@ public class MovingController : MonoBehaviour
 		}
 
 		//if (Input.GetAxis("Horizontal") < 0)
-		if (Input.GetKeyDown(KeyCode.A))
+		if (Input.GetKeyDown(KeyCode.A) || primaryInput.GetButtonDown(VRButton.One))
 		{
 			movingLane--;
 			if (movingLane == -1)
@@ -61,6 +68,7 @@ public class MovingController : MonoBehaviour
 				movingLane = 0;
 			}
 		}
+
 
 		// calculate where the car should be in the future
 		Vector3 targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;
