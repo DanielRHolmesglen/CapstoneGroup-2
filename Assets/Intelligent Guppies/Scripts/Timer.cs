@@ -8,14 +8,19 @@ public class Timer : MonoBehaviour
     public float defaultTime = 180f;
     public Text timerDisplay;
     private float minute, second, millisecond;
+    private MovingController _movingController;
 
     void Start()
     {
+        _movingController = GameObject.Find("Player").GetComponent<MovingController>();
         timerDisplay = GameObject.Find("Timer").GetComponent<Text>();
+        //timerDisplay.gameObject.SetActive(false);
     }
 
     void Update()
     {
+        if (!_movingController.isCarMoved) return;
+
         if (defaultTime > 0)
         {
             defaultTime -= Time.deltaTime;

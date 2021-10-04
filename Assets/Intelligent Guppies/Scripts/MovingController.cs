@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Liminal.SDK.VR;
 using Liminal.SDK.VR.Input;
 
@@ -18,20 +19,19 @@ public class MovingController : MonoBehaviour
 	private MovingObject _movingObject;
 	private int movingLane;
 	private float laneDistance;
+	public bool isCarMoved;
+	public Text triggerToStartTextDisplay;
 
 	void Start()
 	{
+		isCarMoved = false;
+		triggerToStartTextDisplay = GameObject.Find("TriggerToStart").GetComponent<Text>();
 		_movingObject = gameObject.GetComponentInParent<MovingObject>();
 		movingLane = _movingObject.movingLane;
 		laneDistance = _movingObject.laneDistance;
 	}
 
 	void Update()
-	{
-		GetInput();
-	}
-
-	public void GetInput()
 	{
 		/* ----- Get input for car movement -----
          * Horizontal is to move left and right
@@ -45,8 +45,15 @@ public class MovingController : MonoBehaviour
 
 		var primaryInput = VRDevice.Device.PrimaryInputDevice;
 		//var inputsFromVR = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-		//var trigger = primaryInput.GetAxis1D(VRButton.Trigger);
+		var vrTrigger = primaryInput.GetAxis1D(VRButton.Trigger);
 
+		if (Input.GetKey(KeyCode.Space) || vrTrigger > 0.01)
+        {
+			isCarMoved = true;
+			Destroy(triggerToStartTextDisplay);
+		}
+		
+		if (!isCarMoved) return;
 
 		// get the input on which lane we should be
 		//if (Input.GetAxis("Horizontal") > 0)
