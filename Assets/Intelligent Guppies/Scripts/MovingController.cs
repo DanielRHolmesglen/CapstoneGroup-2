@@ -19,6 +19,7 @@ public class MovingController : MonoBehaviour
 	private MovingObject _movingObject;
 	private int movingLane;
 	private float laneDistance;
+	private float horizontalInput;
 	public bool isCarMoved;
 	public Text triggerToStartTextDisplay;
 
@@ -26,6 +27,7 @@ public class MovingController : MonoBehaviour
 	{
 		isCarMoved = false;
 		triggerToStartTextDisplay = GameObject.Find("TriggerToStart").GetComponent<Text>();
+		triggerToStartTextDisplay.text = "Trigger to start";
 		_movingObject = gameObject.GetComponentInParent<MovingObject>();
 		movingLane = _movingObject.movingLane;
 		laneDistance = _movingObject.laneDistance;
@@ -46,18 +48,22 @@ public class MovingController : MonoBehaviour
 		var primaryInput = VRDevice.Device.PrimaryInputDevice;
 		//var inputsFromVR = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 		var vrTrigger = primaryInput.GetAxis1D(VRButton.Trigger);
-
+		
 		if (Input.GetKey(KeyCode.Space) || vrTrigger > 0.01)
-        {
+		{
 			isCarMoved = true;
 			Destroy(triggerToStartTextDisplay);
 		}
-		
+
 		if (!isCarMoved) return;
+
+		//horizontalInput = inputsFromVR.x;
 
 		// get the input on which lane we should be
 		//if (Input.GetAxis("Horizontal") > 0)
-		if (Input.GetKeyDown(KeyCode.D) || primaryInput.GetButtonDown(VRButton.Two))
+		//if (Input.GetKeyDown(KeyCode.D) || primaryInput.GetButtonDown(VRButton.Two))
+		//if (Input.GetKeyDown(KeyCode.D) || inputsFromVR.x > 0)
+		if (Input.GetKeyDown(KeyCode.D) || primaryInput.GetButtonUp(VRButton.Two))
 		{
 			movingLane++;
 			if (movingLane == 3)
@@ -67,7 +73,9 @@ public class MovingController : MonoBehaviour
 		}
 
 		//if (Input.GetAxis("Horizontal") < 0)
-		if (Input.GetKeyDown(KeyCode.A) || primaryInput.GetButtonDown(VRButton.One))
+		//if (Input.GetKeyDown(KeyCode.A) || primaryInput.GetButtonDown(VRButton.One))
+		//if (Input.GetKeyDown(KeyCode.A) || inputsFromVR.x < 0)
+		if (Input.GetKeyDown(KeyCode.A) || primaryInput.GetButtonUp(VRButton.One))
 		{
 			movingLane--;
 			if (movingLane == -1)

@@ -7,6 +7,7 @@ public class Timer : MonoBehaviour
 {
     public float defaultTime = 180f;
     public Text timerDisplay;
+    public Color32 txtColor, txtColorWhite;
     private float minute, second, millisecond;
     private MovingController _movingController;
 
@@ -14,6 +15,9 @@ public class Timer : MonoBehaviour
     {
         _movingController = GameObject.Find("Player").GetComponent<MovingController>();
         timerDisplay = GameObject.Find("Timer").GetComponent<Text>();
+        txtColor = new Color32(255, 255, 255, 0);
+        txtColorWhite = new Color32(255, 255, 255, 255);
+        timerDisplay.color = txtColor;
         //timerDisplay.gameObject.SetActive(false);
     }
 
@@ -44,6 +48,7 @@ public class Timer : MonoBehaviour
         second = Mathf.FloorToInt(timeToDisplay % 60);
         millisecond = timeToDisplay % 1 * 1000;
 
+        timerDisplay.color = txtColorWhite;
         timerDisplay.text = string.Format("{0:00}:{1:00}:{2:00}", minute, second, millisecond);
     }
 }
