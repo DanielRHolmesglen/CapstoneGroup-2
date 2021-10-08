@@ -6,24 +6,33 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     public float defaultTime = 180f;
-    public Text timerDisplay;
+    //public Text txtTimer;
+    public TextMesh txtTimer;
     public Color32 txtColor, txtColorWhite;
     private float minute, second, millisecond;
     private MovingController _movingController;
+    private Transform cameraTarget;
+    private Vector3 cameraOffset;
 
     void Start()
     {
         _movingController = GameObject.Find("Player").GetComponent<MovingController>();
-        timerDisplay = GameObject.Find("Timer").GetComponent<Text>();
+        txtTimer = GameObject.Find("Timer").GetComponent<TextMesh>();
         txtColor = new Color32(255, 255, 255, 0);
         txtColorWhite = new Color32(255, 255, 255, 255);
-        timerDisplay.color = txtColor;
+        txtTimer.color = txtColor;
+        cameraTarget = GameObject.Find("Player").transform;
+        cameraOffset = transform.position - cameraTarget.position;
         //timerDisplay.gameObject.SetActive(false);
     }
 
     void Update()
     {
         if (!_movingController.isCarMoved) return;
+
+        Vector3 cameraPosition = new Vector3(transform.position.x, transform.position.y,
+            cameraOffset.z + cameraTarget.position.z);
+        transform.position = cameraPosition;
 
         if (defaultTime > 0)
         {
@@ -48,7 +57,7 @@ public class Timer : MonoBehaviour
         second = Mathf.FloorToInt(timeToDisplay % 60);
         millisecond = timeToDisplay % 1 * 1000;
 
-        timerDisplay.color = txtColorWhite;
-        timerDisplay.text = string.Format("{0:00}:{1:00}:{2:00}", minute, second, millisecond);
+        txtTimer.color = txtColorWhite;
+        txtTimer.text = string.Format("{0:00}:{1:00}:{2:00}", minute, second, millisecond);
     }
 }

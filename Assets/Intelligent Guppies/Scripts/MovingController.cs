@@ -19,15 +19,16 @@ public class MovingController : MonoBehaviour
 	private MovingObject _movingObject;
 	private int movingLane;
 	private float laneDistance;
-	private float horizontalInput;
 	public bool isCarMoved;
-	public Text triggerToStartTextDisplay;
+	public Text txtTriggerToStart, txtHowToPlay;
 
 	void Start()
 	{
 		isCarMoved = false;
-		triggerToStartTextDisplay = GameObject.Find("TriggerToStart").GetComponent<Text>();
-		triggerToStartTextDisplay.text = "Trigger to start";
+		txtTriggerToStart = GameObject.Find("TriggerToStart").GetComponent<Text>();
+		txtTriggerToStart.text = "Trigger to start";
+		txtHowToPlay = GameObject.Find("HowToPlay").GetComponent<Text>();
+		txtHowToPlay.text = "Press \"A\" To Left and \"X\" To Right";
 		_movingObject = gameObject.GetComponentInParent<MovingObject>();
 		movingLane = _movingObject.movingLane;
 		laneDistance = _movingObject.laneDistance;
@@ -50,7 +51,8 @@ public class MovingController : MonoBehaviour
 		if (Input.GetKey(KeyCode.Space) || primaryInput.GetButtonDown(VRButton.Trigger))
 		{
 			isCarMoved = true;
-			Destroy(triggerToStartTextDisplay);
+			Destroy(txtTriggerToStart);
+			Destroy(txtHowToPlay);
 		}
 
 		if (!isCarMoved) return;
