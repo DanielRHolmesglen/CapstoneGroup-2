@@ -32,6 +32,7 @@ public class MovingController : MonoBehaviour
 		_movingObject = gameObject.GetComponentInParent<MovingObject>();
 		movingLane = _movingObject.movingLane;
 		laneDistance = _movingObject.laneDistance;
+
 	}
 
 	void Update()
@@ -82,9 +83,9 @@ public class MovingController : MonoBehaviour
 			}
 		}
 
-
 		// calculate where the car should be in the future
 		Vector3 targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;
+
 		if (movingLane == 0)
 		{
 			targetPosition += Vector3.left * laneDistance;
@@ -94,6 +95,7 @@ public class MovingController : MonoBehaviour
 			targetPosition += Vector3.right * laneDistance;
 		}
 
-		transform.position = targetPosition;
+		//transform.position = targetPosition;
+		transform.position = Vector3.Lerp(transform.position, targetPosition, 5 * Time.deltaTime);
 	}
 }
