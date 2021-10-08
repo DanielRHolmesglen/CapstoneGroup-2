@@ -7,13 +7,13 @@ using Liminal.SDK.VR.Input;
 public class CarController : MonoBehaviour
 {
 	/*  ----- CarController Class -----
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     */
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
 	private float horizontalInput, verticalInput, steeringAngle;
 	private bool isBreaking;
 
@@ -21,25 +21,15 @@ public class CarController : MonoBehaviour
 	public Transform frontLeftWheelT, frontRightWheelT, rearLeftWheelT, rearRightWheelT;
 	private float maxSteerAngle, motorForce, brakeForce;
 	private Car _car;
-	//public float maxSteerAngle = 30f;
-	//public float motorForce = 300f;
-	//private float brakeForce = 0f;
 	private Rigidbody carRigibody;
 	private Vector3 carDirection;
-	//public GameObject targetForCamera;
-
-	/* ----- For fixing car flipping issue -----
-     * Fixed by moving center of the mass up
-     * public float mass = -0.9f;   >> for normal in unity
-     */
-	//private float mass = 0f;
 
 	void Start()
 	{
 		_car = gameObject.GetComponent<Car>();
 		carRigibody = GetComponent<Rigidbody>();
 		carRigibody.centerOfMass = new Vector3(0f, _car.mass, 0f);
-		_car.targetForCamera = GameObject.Find("CameraLookAt");
+		//_car.targetForCamera = GameObject.Find("CameraLookAt");
 		maxSteerAngle = _car.maxSteerAngle;
 		motorForce = _car.motorForce;
 		brakeForce = _car.brakeForce;
@@ -79,8 +69,8 @@ public class CarController : MonoBehaviour
 			//verticalInput = Input.GetAxis("Vertical");
 
 			// for building in VR
-			 horizontalInput = inputsFromVR.x;
-			 verticalInput = inputsFromVR.y;
+			horizontalInput = inputsFromVR.x;
+			verticalInput = inputsFromVR.y;
 
 			//carDirection.Set(horizontalInput, 0, verticalInput);
 			//transform.Translate(carDirection * motorForce * Time.deltaTime);
@@ -128,7 +118,7 @@ public class CarController : MonoBehaviour
 	}
 
 	private void UpdateWheelRotation()
-    {
+	{
 		/* For fixing Kye's car wheel
 		 * comment this function if using another car
 		 */
@@ -155,5 +145,4 @@ public class CarController : MonoBehaviour
 		_rot = _rot * Quaternion.Euler(0, 0, -90);
 		transform.rotation = _rot;
 	}
-	// this comment is for test commit 17/9/2021
 }
