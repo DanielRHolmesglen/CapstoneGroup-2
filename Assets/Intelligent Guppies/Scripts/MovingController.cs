@@ -27,8 +27,8 @@ public class MovingController : MonoBehaviour
 		isCarMoved = false;
 		txtTriggerToStart = GameObject.Find("TriggerToStart").GetComponent<Text>();
 		txtTriggerToStart.text = "Trigger to start";
-		txtHowToPlay = GameObject.Find("HowToPlay").GetComponent<Text>();
-		txtHowToPlay.text = "Press \"A\" To Left and \"X\" To Right";
+		//txtHowToPlay = GameObject.Find("HowToPlay").GetComponent<Text>();
+		//txtHowToPlay.text = "Press \"A\" To Left and \"X\" To Right";
 		_movingObject = gameObject.GetComponentInParent<MovingObject>();
 		movingLane = _movingObject.movingLane;
 		laneDistance = _movingObject.laneDistance;
@@ -48,7 +48,8 @@ public class MovingController : MonoBehaviour
          */
 
 		var primaryInput = VRDevice.Device.PrimaryInputDevice;
-		
+		var vrInputs = primaryInput.GetAxis2D(VRAxis.One);
+
 		if (Input.GetKey(KeyCode.Space) || primaryInput.GetButtonDown(VRButton.Trigger))
 		{
 			isCarMoved = true;
@@ -60,9 +61,10 @@ public class MovingController : MonoBehaviour
 
 		// get the input on which lane we should be
 		// if (Input.GetAxis("Horizontal") > 0)
-		// if (Input.GetKeyDown(KeyCode.D) || inputsFromVR.x > 0)
+		// if (Input.GetKeyDown(KeyCode.D) || vrInputs.x > 0)
 		// VRButton.One is "A" on Oculus Touch Controllers
-		if (Input.GetKeyDown(KeyCode.D) || primaryInput.GetButtonDown(VRButton.One))
+		// if (Input.GetKeyDown(KeyCode.D) || primaryInput.GetButtonDown(VRButton.One))
+		if (Input.GetKeyDown(KeyCode.D) || vrInputs.x > 0)
 		{
 			movingLane++;
 			if (movingLane == 3)
@@ -72,9 +74,10 @@ public class MovingController : MonoBehaviour
 		}
 
 		// if (Input.GetAxis("Horizontal") < 0)
-		// if (Input.GetKeyDown(KeyCode.A) || inputsFromVR.x < 0)
+		// if (Input.GetKeyDown(KeyCode.A) || vrInputs.x > 0)
 		// VRButton.Three is "X" on Oculus Touch Controllers
-		if (Input.GetKeyDown(KeyCode.A) || primaryInput.GetButtonDown(VRButton.Three))
+		// if (Input.GetKeyDown(KeyCode.A) || primaryInput.GetButtonDown(VRButton.Three))
+		if (Input.GetKeyDown(KeyCode.A) || vrInputs.x > 0)
 		{
 			movingLane--;
 			if (movingLane == -1)
