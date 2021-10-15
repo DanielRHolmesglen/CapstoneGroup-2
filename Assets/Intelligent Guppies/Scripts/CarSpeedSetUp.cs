@@ -29,17 +29,17 @@ public class CarSpeedSetUp : MonoBehaviour
     {
         Instantiate(speedChangedEffect, transform.position, transform.rotation);
         Car carSpeed = _car.GetComponent<Car>();
-        carCurrentSpeed = carSpeed.motorForce;
+        carCurrentSpeed = carSpeed.carSpeed;
         carSpeedChanged = carSpeed.speedChanged;
 
         Debug.Log("Current speed = " + carCurrentSpeed);
         carCurrentSpeed += carSpeedChanged;
         Debug.Log("new speed after power up = " + carCurrentSpeed);
-        carSpeed.motorForce = carCurrentSpeed;
-        Debug.Log("new current speed after power up = " + carSpeed.motorForce);
+        carSpeed.carSpeed = carCurrentSpeed;
+        Debug.Log("new current speed after power up = " + carSpeed.carSpeed);
     }
 
-    IEnumerator AdjustSpeed(Collider _car) 
+    /*IEnumerator AdjustSpeed(Collider _car) 
     {
         /* ----- Adjust speed for the car when it collide with an item -----
          *  1. Spawn an effect to let a player know that they hit something
@@ -48,7 +48,7 @@ public class CarSpeedSetUp : MonoBehaviour
          *  4. Reverse the speed back to normal
          */
         
-        Instantiate(speedChangedEffect, transform.position, transform.rotation);
+        /*Instantiate(speedChangedEffect, transform.position, transform.rotation);
         //CarController carControllerAccessd = _car.GetComponent<CarController>();
         Car carSpeed = _car.GetComponent<Car>();
         carCurrentSpeed = carSpeed.motorForce;
@@ -60,5 +60,5 @@ public class CarSpeedSetUp : MonoBehaviour
         //carSpeed.motorForce -= carSpeedChanged;
         //Debug.Log("current new speed = " + carCurrentSpeed);
         // this comment is for push again for Daniel to see this script
-    }
+    }*/
 }
