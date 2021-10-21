@@ -19,12 +19,13 @@ public class MovingController : MonoBehaviour
 	private MovingObject _movingObject;
 	private int movingLane;
 	private float laneDistance;
-	public bool isCarMoved;
+	public bool isCarMoved, hasMoved;
 	public Text txtTriggerToStart, txtHowToPlay;
 
 	void Start()
 	{
 		isCarMoved = false;
+		hasMoved = false;
 		txtTriggerToStart = GameObject.Find("TriggerToStart").GetComponent<Text>();
 		txtTriggerToStart.text = "Trigger to start";
 		//txtHowToPlay = GameObject.Find("HowToPlay").GetComponent<Text>();
@@ -54,7 +55,6 @@ public class MovingController : MonoBehaviour
 		{
 			isCarMoved = true;
 			Destroy(txtTriggerToStart);
-			Destroy(txtHowToPlay);
 		}
 
 		if (!isCarMoved) return;
@@ -74,10 +74,10 @@ public class MovingController : MonoBehaviour
 		}
 
 		// if (Input.GetAxis("Horizontal") < 0)
-		// if (Input.GetKeyDown(KeyCode.A) || vrInputs.x > 0)
+		// if (Input.GetKeyDown(KeyCode.A) || vrInputs.x < 0)
 		// VRButton.Three is "X" on Oculus Touch Controllers
 		// if (Input.GetKeyDown(KeyCode.A) || primaryInput.GetButtonDown(VRButton.Three))
-		if (Input.GetKeyDown(KeyCode.A) || vrInputs.x > 0)
+		if (Input.GetKeyDown(KeyCode.A) || vrInputs.x < 0)
 		{
 			movingLane--;
 			if (movingLane == -1)
@@ -100,5 +100,11 @@ public class MovingController : MonoBehaviour
 
 		//transform.position = targetPosition;
 		transform.position = Vector3.Lerp(transform.position, targetPosition, 5 * Time.deltaTime);
+		//Invoke("ResetHasMoved", 0.1f);
+	}
+
+    void ResetHasMoved()
+    {
+		hasMoved = false;
 	}
 }
