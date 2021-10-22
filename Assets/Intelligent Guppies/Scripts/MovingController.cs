@@ -49,7 +49,7 @@ public class MovingController : MonoBehaviour
          */
 
 		var primaryInput = VRDevice.Device.PrimaryInputDevice;
-		var vrInputs = primaryInput.GetAxis2D(VRAxis.One);
+
 
 		if (Input.GetKey(KeyCode.Space) || primaryInput.GetButtonDown(VRButton.Trigger))
 		{
@@ -62,8 +62,7 @@ public class MovingController : MonoBehaviour
 		// get the input on which lane we should be
 		// if (Input.GetAxis("Horizontal") > 0) // right
 		// if (Input.GetKeyDown(KeyCode.D) || vrInputs.x > 0)
-		// VRButton.One is "A" on Oculus Touch Controllers
-		if (Input.GetKeyDown(KeyCode.D) || primaryInput.GetButtonDown(VRButton.One))
+		if (Input.GetKeyDown(KeyCode.D) || primaryInput.GetButtonDown(VRButton.Four))
 		{
 			movingLane++;
 			if (movingLane == 3)
@@ -74,7 +73,6 @@ public class MovingController : MonoBehaviour
 
 		// if (Input.GetAxis("Horizontal") < 0) // left
 		// if (Input.GetKeyDown(KeyCode.A) || vrInputs.x < 0)
-		// VRButton.Three is "X" on Oculus Touch Controllers
 		if (Input.GetKeyDown(KeyCode.A) || primaryInput.GetButtonDown(VRButton.Three))
 		{
 			movingLane--;
