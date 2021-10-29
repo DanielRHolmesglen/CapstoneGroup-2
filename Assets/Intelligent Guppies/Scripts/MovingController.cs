@@ -62,17 +62,19 @@ public class MovingController : MonoBehaviour
 		// get the input on which lane we should be
 		// if (Input.GetAxis("Horizontal") > 0) // right
 		// if (Input.GetKeyDown(KeyCode.D) || vrInputs.x > 0)
-		if (Input.GetKeyDown(KeyCode.D) || primaryInput.GetButtonDown(VRButton.Four))
+		// if (Input.GetKeyDown(KeyCode.D) || primaryInput.GetButtonDown(VRButton.Four))
+		if (Input.GetKeyDown(KeyCode.D) || primaryInput.GetButtonDown(VRButton.One))
 		{
 			movingLane++;
 			if (movingLane == 3)
 			{
-				movingLane = 2;
+				movingLane = 2; 
 			}
 		}
 
 		// if (Input.GetAxis("Horizontal") < 0) // left
 		// if (Input.GetKeyDown(KeyCode.A) || vrInputs.x < 0)
+		// if (Input.GetKeyDown(KeyCode.A) || primaryInput.GetButtonDown(VRButton.Three))
 		if (Input.GetKeyDown(KeyCode.A) || primaryInput.GetButtonDown(VRButton.Three))
 		{
 			movingLane--;
