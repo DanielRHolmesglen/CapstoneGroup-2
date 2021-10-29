@@ -19,19 +19,21 @@ public class MovingController : MonoBehaviour
 	private MovingObject _movingObject;
 	private int movingLane;
 	private float laneDistance;
-	public bool isCarMoved;
+	public bool isCarMoved, hasMoved;
 	public Text txtTriggerToStart, txtHowToPlay;
 
 	void Start()
 	{
 		isCarMoved = false;
+		hasMoved = false;
 		txtTriggerToStart = GameObject.Find("TriggerToStart").GetComponent<Text>();
 		txtTriggerToStart.text = "Trigger to start";
-		txtHowToPlay = GameObject.Find("HowToPlay").GetComponent<Text>();
-		txtHowToPlay.text = "Press \"A\" To Left and \"X\" To Right";
+		//txtHowToPlay = GameObject.Find("HowToPlay").GetComponent<Text>();
+		//txtHowToPlay.text = "Press \"A\" To Left and \"X\" To Right";
 		_movingObject = gameObject.GetComponentInParent<MovingObject>();
 		movingLane = _movingObject.movingLane;
 		laneDistance = _movingObject.laneDistance;
+
 	}
 
 	void Update()
@@ -47,21 +49,20 @@ public class MovingController : MonoBehaviour
          */
 
 		var primaryInput = VRDevice.Device.PrimaryInputDevice;
-		
+
+
 		if (Input.GetKey(KeyCode.Space) || primaryInput.GetButtonDown(VRButton.Trigger))
 		{
 			isCarMoved = true;
 			Destroy(txtTriggerToStart);
-			Destroy(txtHowToPlay);
 		}
 
 		if (!isCarMoved) return;
 
 		// get the input on which lane we should be
-		// if (Input.GetAxis("Horizontal") > 0)
-		// if (Input.GetKeyDown(KeyCode.D) || inputsFromVR.x > 0)
-		// VRButton.One is "A" on Oculus Touch Controllers
-		if (Input.GetKeyDown(KeyCode.D) || primaryInput.GetButtonDown(VRButton.One))
+		// if (Input.GetAxis("Horizontal") > 0) // right
+		// if (Input.GetKeyDown(KeyCode.D) || vrInputs.x > 0)
+		if (Input.GetKeyDown(KeyCode.D) || primaryInput.GetButtonDown(VRButton.Four))
 		{
 			movingLane++;
 			if (movingLane == 3)
@@ -70,9 +71,8 @@ public class MovingController : MonoBehaviour
 			}
 		}
 
-		// if (Input.GetAxis("Horizontal") < 0)
-		// if (Input.GetKeyDown(KeyCode.A) || inputsFromVR.x < 0)
-		// VRButton.Three is "X" on Oculus Touch Controllers
+		// if (Input.GetAxis("Horizontal") < 0) // left
+		// if (Input.GetKeyDown(KeyCode.A) || vrInputs.x < 0)
 		if (Input.GetKeyDown(KeyCode.A) || primaryInput.GetButtonDown(VRButton.Three))
 		{
 			movingLane--;
@@ -82,9 +82,9 @@ public class MovingController : MonoBehaviour
 			}
 		}
 
-
 		// calculate where the car should be in the future
 		Vector3 targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;
+
 		if (movingLane == 0)
 		{
 			targetPosition += Vector3.left * laneDistance;
@@ -94,6 +94,13 @@ public class MovingController : MonoBehaviour
 			targetPosition += Vector3.right * laneDistance;
 		}
 
-		transform.position = targetPosition;
+		//transform.position = targetPosition;
+		transform.position = Vector3.Lerp(transform.position, targetPosition, 5 * Time.deltaTime);
+		//Invoke("ResetHasMoved", 0.1f);
+	}
+
+    void ResetHasMoved()
+    {
+		hasMoved = false;
 	}
 }

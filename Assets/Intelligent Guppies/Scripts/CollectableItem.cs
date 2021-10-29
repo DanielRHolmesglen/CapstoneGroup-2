@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SphereCollider))]
+//[RequireComponent(typeof(SphereCollider))]
+[RequireComponent(typeof(MeshCollider))]
 public class CollectableItem : MonoBehaviour, IInteractable
 {
     public Transform spawnPoint;
@@ -10,7 +11,7 @@ public class CollectableItem : MonoBehaviour, IInteractable
 
     void Start()
     {
-        GetComponent<SphereCollider>().isTrigger = true;
+        GetComponent<MeshCollider>().isTrigger = true;
     }
 
     public void OnTriggerEnter(Collider _other)
