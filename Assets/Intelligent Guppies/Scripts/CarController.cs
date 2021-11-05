@@ -41,7 +41,7 @@ public class CarController : MonoBehaviour
 		Steer();
 		Accelerate();
 		UpdateAllWheelPositions();
-		UpdateWheelRotation();
+		//UpdateWheelRotation();
 	}
 
 	public void GetInput()
@@ -117,16 +117,16 @@ public class CarController : MonoBehaviour
 		UpdateWheelPosition(rearLeftWheelC, rearLeftWheelT);
 	}
 
-	private void UpdateWheelRotation()
+	/*private void UpdateWheelRotation()
 	{
-		/* For fixing Kye's car wheel
+		 For fixing Kye's car wheel
 		 * comment this function if using another car
-		 */
+		 
 		RotationWheelCorrection(frontRightWheelT);
 		RotationWheelCorrection(frontLeftWheelT);
 		RotationWheelCorrection(rearRightWheelT);
 		RotationWheelCorrection(rearLeftWheelT);
-	}
+	}*/
 
 	private void UpdateWheelPosition(WheelCollider _collider, Transform _transform)
 	{
