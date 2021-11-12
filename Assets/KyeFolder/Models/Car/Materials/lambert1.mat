@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: lambert1
-  m_Shader: {fileID: 45, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 83f251d5ba6255546baa5f4bf4f9ea37, type: 3}
   m_ShaderKeywords: _EMISSION _METALLICGLOSSMAP _NORMALMAP _PARALLAXMAP
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
@@ -36,6 +36,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
+        m_Texture: {fileID: 2800000, guid: 042da08d1dbe50d4392853ea521bd2e2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Emissive:
         m_Texture: {fileID: 2800000, guid: 042da08d1dbe50d4392853ea521bd2e2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -72,12 +76,14 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _BumpScale: 0
+    - _BumpScale: 1
+    - _Curve: 0.0002
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _FadeDistance: 0
     - _FadeScaleX: 4
+    - _Gloss: 0.8
     - _GlossMapScale: 0.66
     - _Glossiness: 0.843
     - _GlossyReflections: 1
@@ -89,6 +95,7 @@ Material:
     - _RippleSpeed: 1
     - _RippleStrength: 0.5
     - _Saturation: 1
+    - _Slider: 25
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -97,8 +104,10 @@ Material:
     - _Y: 0
     - _Z: 0
     - _ZWrite: 1
+    - _node_6328: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorHorizon: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - _EmissionColor: {r: 3.5764706, g: 3.6235294, b: 4, a: 1}
+    - _EmissionColor: {r: 0, g: 4.2638154, b: 5.3403134, a: 1}
+    - _EmissiveColor: {r: 0, g: 1, b: 1, a: 0}
     - _SpecColor: {r: 0.8349056, g: 0.98529166, b: 1, a: 1}
