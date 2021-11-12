@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3d0b024d141b6b74aa61e99f7640701c
+guid: 4a79ab5b2da2b7645beca2f9b9b32f41
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable: []
@@ -7,18 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Concrete
-    second: {fileID: 2100000, guid: 364ee3504bbf3394886a6130b74f4363, type: 2}
+      name: Leaf
+    second: {fileID: 2100000, guid: 3b38df4fe3668ba41b651e6b198d7937, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Light
-    second: {fileID: 2100000, guid: feacc6077d2375548a496ecd41b14dcc, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Road
-    second: {fileID: 2100000, guid: 87c04cd4f982f18449c54cbfe3e1e218, type: 2}
+      name: standardSurface1
+    second: {fileID: 2100000, guid: f14e91a6da5a26044a0820b3e6a1d74c, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
