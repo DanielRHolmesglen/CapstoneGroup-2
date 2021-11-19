@@ -51,7 +51,7 @@ public class MovingController : MonoBehaviour
 
 		var primaryInput = VRDevice.Device.PrimaryInputDevice;
 		var vrInputs = primaryInput.GetAxis2D(VRAxis.One);
-		var trigger = primaryInput.GetAxis1D(VRButton.Trigger);
+		//var trigger = primaryInput.GetAxis1D(VRButton.Trigger);
 
 
 		if (Input.GetKey(KeyCode.Space) || primaryInput.GetButtonDown(VRButton.Trigger))
@@ -62,11 +62,8 @@ public class MovingController : MonoBehaviour
 
 		if (!isCarMoved) return;
 
-		// get the input on which lane we should be
-		// if (Input.GetAxis("Horizontal") > 0) // right
-		//if (Input.GetKeyDown(KeyCode.D) || vrInputs.x > 0)
-		//if (Input.GetKeyDown(KeyCode.D) || primaryInput.GetButtonDown(VRButton.One)) working
-		if (Input.GetKeyDown(KeyCode.D) || vrInputs.x > 0 && !hasMoved)
+		// get the input on which lane we should be => right
+		/*if (Input.GetKeyDown(KeyCode.D) || vrInputs.x > 0 && !hasMoved)
 		{
 			movingLane++;
 			if (movingLane == 3)
@@ -75,12 +72,10 @@ public class MovingController : MonoBehaviour
 			}
 			Invoke("ResetHasMoved", 1);
 			hasMoved = true;
-		}
+		}*/
 
-		// if (Input.GetAxis("Horizontal") < 0) // left
-		// if (Input.GetKeyDown(KeyCode.A) || vrInputs.x < 0)
-		//if (Input.GetKeyDown(KeyCode.A) || primaryInput.GetButtonDown(VRButton.Three)) working
-		if (Input.GetKeyDown(KeyCode.A) || vrInputs.x < 0 && !hasMoved)
+		// => left left
+		/*if (Input.GetKeyDown(KeyCode.A) || vrInputs.x < 0 && !hasMoved)
 		{
 			movingLane--;
 			if (movingLane == -1)
@@ -91,7 +86,25 @@ public class MovingController : MonoBehaviour
 			hasMoved = true;
 		}
 
-		if (vrInputs.x == 0) hasMoved = false;
+		if (vrInputs.x == 0) hasMoved = false;*/
+
+		if (Input.GetKeyDown(KeyCode.D))
+		{
+			movingLane++;
+			if (movingLane == 3)
+			{
+				movingLane = 2;
+			}
+		}
+
+		if (Input.GetKeyDown(KeyCode.A))
+		{
+			movingLane--;
+			if (movingLane == -1)
+			{
+				movingLane = 0;
+			}
+		}
 
 		// calculate where the car should be in the future
 		Vector3 targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;
