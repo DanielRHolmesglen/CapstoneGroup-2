@@ -25,7 +25,7 @@ public class MovingController : MonoBehaviour
 	void Start()
 	{
 		isCarMoved = false;
-		hasMoved = false;
+		hasMoved = true;
 		txtTriggerToStart = GameObject.Find("TriggerToStart").GetComponent<Text>();
 		txtTriggerToStart.text = "Trigger to start";
 		//txtHowToPlay = GameObject.Find("HowToPlay").GetComponent<Text>();
@@ -33,6 +33,7 @@ public class MovingController : MonoBehaviour
 		_movingObject = gameObject.GetComponentInParent<MovingObject>();
 		movingLane = _movingObject.movingLane;
 		laneDistance = _movingObject.laneDistance;
+
 
 	}
 
@@ -49,6 +50,8 @@ public class MovingController : MonoBehaviour
          */
 
 		var primaryInput = VRDevice.Device.PrimaryInputDevice;
+		var vrInputs = primaryInput.GetAxis2D(VRAxis.One);
+		var trigger = primaryInput.GetAxis1D(VRButton.Trigger);
 
 
 		if (Input.GetKey(KeyCode.Space) || primaryInput.GetButtonDown(VRButton.Trigger))
@@ -62,25 +65,27 @@ public class MovingController : MonoBehaviour
 		// get the input on which lane we should be
 		// if (Input.GetAxis("Horizontal") > 0) // right
 		// if (Input.GetKeyDown(KeyCode.D) || vrInputs.x > 0)
-		// if (Input.GetKeyDown(KeyCode.D) || primaryInput.GetButtonDown(VRButton.Four))
-		if (Input.GetKeyDown(KeyCode.D) || primaryInput.GetButtonDown(VRButton.One))
+		//if (Input.GetKeyDown(KeyCode.D) || primaryInput.GetButtonDown(VRButton.One)) working
+		if (Input.GetKeyDown(KeyCode.D) || vrInputs.x > 0 && !hasMoved)
 		{
 			movingLane++;
 			if (movingLane == 3)
 			{
-				movingLane = 2; 
+				movingLane = 2;
+				Invoke("ResetHasMoved", 1);
 			}
 		}
 
 		// if (Input.GetAxis("Horizontal") < 0) // left
 		// if (Input.GetKeyDown(KeyCode.A) || vrInputs.x < 0)
-		// if (Input.GetKeyDown(KeyCode.A) || primaryInput.GetButtonDown(VRButton.Three))
-		if (Input.GetKeyDown(KeyCode.A) || primaryInput.GetButtonDown(VRButton.Three))
+		//if (Input.GetKeyDown(KeyCode.A) || primaryInput.GetButtonDown(VRButton.Three)) working
+		if (Input.GetKeyDown(KeyCode.A) || vrInputs.x < 0 && !hasMoved)
 		{
 			movingLane--;
 			if (movingLane == -1)
 			{
 				movingLane = 0;
+				Invoke("ResetHasMoved", 1);
 			}
 		}
 
@@ -98,7 +103,6 @@ public class MovingController : MonoBehaviour
 
 		//transform.position = targetPosition;
 		transform.position = Vector3.Lerp(transform.position, targetPosition, 5 * Time.deltaTime);
-		//Invoke("ResetHasMoved", 0.1f);
 	}
 
     void ResetHasMoved()

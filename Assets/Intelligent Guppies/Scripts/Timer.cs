@@ -58,6 +58,7 @@ public class Timer : MonoBehaviour
         millisecond = timeToDisplay % 1 * 1000;
 
         txtTimer.color = txtColorWhite;
-        txtTimer.text = string.Format("{0:00}:{1:00}:{2:00}", minute, second, millisecond);
+        //txtTimer.text = string.Format("{0:00}:{1:00}:{2:00}", minute, second, millisecond);
+        txtTimer.text = string.Format("{0:00}:{1:00}", minute, second);
     }
 }
