@@ -25,7 +25,7 @@ public class MovingController : MonoBehaviour
 	void Start()
 	{
 		isCarMoved = false;
-		hasMoved = true;
+		hasMoved = false;
 		txtTriggerToStart = GameObject.Find("TriggerToStart").GetComponent<Text>();
 		txtTriggerToStart.text = "Trigger to start";
 		//txtHowToPlay = GameObject.Find("HowToPlay").GetComponent<Text>();
@@ -64,16 +64,17 @@ public class MovingController : MonoBehaviour
 
 		// get the input on which lane we should be
 		// if (Input.GetAxis("Horizontal") > 0) // right
-		// if (Input.GetKeyDown(KeyCode.D) || vrInputs.x > 0)
+		//if (Input.GetKeyDown(KeyCode.D) || vrInputs.x > 0)
 		//if (Input.GetKeyDown(KeyCode.D) || primaryInput.GetButtonDown(VRButton.One)) working
 		if (Input.GetKeyDown(KeyCode.D) || vrInputs.x > 0 && !hasMoved)
 		{
 			movingLane++;
 			if (movingLane == 3)
 			{
-				movingLane = 2;
-				Invoke("ResetHasMoved", 1);
+				movingLane = 2;	
 			}
+			Invoke("ResetHasMoved", 1);
+			hasMoved = true;
 		}
 
 		// if (Input.GetAxis("Horizontal") < 0) // left
@@ -85,10 +86,12 @@ public class MovingController : MonoBehaviour
 			if (movingLane == -1)
 			{
 				movingLane = 0;
-				Invoke("ResetHasMoved", 1);
+				//Invoke("ResetHasMoved", 1);
 			}
+			Invoke("ResetHasMoved", 1);
+			hasMoved = true;
 		}
-
+		if (vrInputs.x == 0) hasMoved = false;
 		// calculate where the car should be in the future
 		Vector3 targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;
 
