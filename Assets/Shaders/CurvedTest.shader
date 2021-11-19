@@ -3,18 +3,19 @@
 // Shader created with Shader Forge v1.40 
 // Shader Forge (c) Freya Holmer - http://www.acegikmo.com/shaderforge/
 // Note: Manually altering this data may prevent you from opening it in Shader Forge
-/*SF_DATA;ver:1.40;sub:START;pass:START;ps:flbk:,iptp:0,cusa:False,bamd:0,cgin:,cpap:True,lico:1,lgpr:1,limd:3,spmd:1,trmd:0,grmd:0,uamb:True,mssp:True,bkdf:True,hqlp:False,rprd:True,enco:False,rmgx:True,imps:True,rpth:0,vtps:0,hqsc:True,nrmq:1,nrsp:0,vomd:0,spxs:False,tesm:0,olmd:1,culm:0,bsrc:0,bdst:1,dpts:2,wrdp:True,dith:0,atcv:False,rfrpo:True,rfrpn:Refraction,coma:15,ufog:True,aust:True,igpj:False,qofs:0,qpre:1,rntp:1,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,atwp:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False,fnsp:False,fnfb:False,fsmp:False;n:type:ShaderForge.SFN_Final,id:2865,x:33040,y:32654,varname:node_2865,prsc:2|diff-6343-OUT,spec-358-OUT,gloss-1813-OUT,normal-5964-RGB,emission-159-OUT,voffset-7358-XYZ;n:type:ShaderForge.SFN_Multiply,id:6343,x:32114,y:32712,varname:node_6343,prsc:2|A-7736-RGB,B-6665-RGB;n:type:ShaderForge.SFN_Color,id:6665,x:31921,y:32805,ptovrint:False,ptlb:Color,ptin:_Color,varname:_Color,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:0.5019608,c2:0.5019608,c3:0.5019608,c4:1;n:type:ShaderForge.SFN_Tex2d,id:7736,x:31921,y:32620,ptovrint:True,ptlb:Base Color,ptin:_MainTex,varname:_MainTex,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Tex2d,id:5964,x:32598,y:32746,ptovrint:True,ptlb:Normal Map,ptin:_BumpMap,varname:_BumpMap,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:3,isnm:True;n:type:ShaderForge.SFN_Slider,id:358,x:32250,y:32780,ptovrint:False,ptlb:Metallic,ptin:_Metallic,varname:node_358,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0,max:1;n:type:ShaderForge.SFN_Slider,id:1813,x:32250,y:32882,ptovrint:False,ptlb:Gloss,ptin:_Gloss,varname:_Metallic_copy,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0.8,max:1;n:type:ShaderForge.SFN_ScreenParameters,id:3043,x:32080,y:32908,varname:node_3043,prsc:2;n:type:ShaderForge.SFN_FragmentPosition,id:9678,x:32085,y:33605,varname:node_9678,prsc:2;n:type:ShaderForge.SFN_ViewVector,id:8190,x:31285,y:33623,varname:node_8190,prsc:2;n:type:ShaderForge.SFN_FragmentPosition,id:3947,x:31524,y:33444,varname:node_3947,prsc:2;n:type:ShaderForge.SFN_Subtract,id:5408,x:31814,y:33664,varname:node_5408,prsc:2|A-3947-XYZ,B-947-XYZ;n:type:ShaderForge.SFN_ViewPosition,id:947,x:31468,y:33747,varname:node_947,prsc:2;n:type:ShaderForge.SFN_ComponentMask,id:9173,x:32085,y:33742,varname:node_9173,prsc:2,cc1:2,cc2:-1,cc3:-1,cc4:-1|IN-5408-OUT;n:type:ShaderForge.SFN_ValueProperty,id:4933,x:32293,y:33583,ptovrint:False,ptlb:Curve,ptin:_Curve,varname:node_4933,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,v1:0.0005;n:type:ShaderForge.SFN_Power,id:9716,x:32585,y:33769,varname:node_9716,prsc:2|VAL-9173-OUT,EXP-4122-OUT;n:type:ShaderForge.SFN_Vector1,id:4122,x:32456,y:33935,varname:node_4122,prsc:2,v1:2;n:type:ShaderForge.SFN_Multiply,id:6360,x:33169,y:33641,varname:node_6360,prsc:2|A-9559-OUT,B-9716-OUT;n:type:ShaderForge.SFN_Multiply,id:5409,x:32854,y:33526,varname:node_5409,prsc:2|A-4933-OUT,B-1460-OUT;n:type:ShaderForge.SFN_Vector1,id:1460,x:32635,y:33665,varname:node_1460,prsc:2,v1:-1;n:type:ShaderForge.SFN_Add,id:2470,x:33798,y:33448,varname:node_2470,prsc:2|A-3704-XYZ,B-8980-OUT;n:type:ShaderForge.SFN_FragmentPosition,id:3704,x:33119,y:33325,varname:node_3704,prsc:2;n:type:ShaderForge.SFN_FragmentPosition,id:1371,x:31559,y:33910,varname:node_1371,prsc:2;n:type:ShaderForge.SFN_Transform,id:7358,x:34001,y:33468,varname:node_7358,prsc:2,tffrom:0,tfto:1|IN-2470-OUT;n:type:ShaderForge.SFN_FragmentPosition,id:5380,x:31794,y:33906,varname:node_5380,prsc:2;n:type:ShaderForge.SFN_FragmentPosition,id:8044,x:31858,y:33970,varname:node_8044,prsc:2;n:type:ShaderForge.SFN_FragmentPosition,id:592,x:31922,y:34034,varname:node_592,prsc:2;n:type:ShaderForge.SFN_Multiply,id:159,x:32611,y:32957,varname:node_159,prsc:2|A-6414-RGB,B-4733-RGB;n:type:ShaderForge.SFN_Color,id:6414,x:32195,y:33039,ptovrint:False,ptlb:EmissiveColor,ptin:_EmissiveColor,varname:node_6414,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:0,c2:0,c3:0,c4:0;n:type:ShaderForge.SFN_Tex2d,id:4733,x:32351,y:33172,ptovrint:False,ptlb:Emissive,ptin:_Emissive,varname:node_4733,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:2,isnm:False;n:type:ShaderForge.SFN_Vector1,id:1034,x:33380,y:33615,varname:node_1034,prsc:2,v1:1;n:type:ShaderForge.SFN_Append,id:8980,x:33577,y:33732,varname:node_8980,prsc:2|A-1034-OUT,B-6360-OUT;n:type:ShaderForge.SFN_ObjectPosition,id:752,x:33681,y:32733,varname:node_752,prsc:2;n:type:ShaderForge.SFN_ComponentMask,id:1573,x:33826,y:33782,varname:node_1573,prsc:2,cc1:1,cc2:0,cc3:-1,cc4:-1|IN-8980-OUT;n:type:ShaderForge.SFN_Add,id:1129,x:34251,y:32862,varname:node_1129,prsc:2|A-752-XYZ;n:type:ShaderForge.SFN_Negate,id:9559,x:32528,y:33399,varname:node_9559,prsc:2|IN-4933-OUT;n:type:ShaderForge.SFN_Transpose,id:1733,x:34117,y:33712,varname:node_1733,prsc:2;n:type:ShaderForge.SFN_E,id:8289,x:34303,y:33542,varname:node_8289,prsc:2;n:type:ShaderForge.SFN_ObjectPosition,id:5292,x:33298,y:33363,varname:node_5292,prsc:2;proporder:5964-6665-7736-358-1813-4933-6414-4733;pass:END;sub:END;*/
+/*SF_DATA;ver:1.40;sub:START;pass:START;ps:flbk:,iptp:0,cusa:False,bamd:0,cgin:,cpap:True,lico:1,lgpr:1,limd:3,spmd:1,trmd:0,grmd:0,uamb:True,mssp:True,bkdf:True,hqlp:False,rprd:True,enco:False,rmgx:True,imps:True,rpth:0,vtps:0,hqsc:True,nrmq:1,nrsp:0,vomd:0,spxs:False,tesm:0,olmd:1,culm:0,bsrc:0,bdst:1,dpts:2,wrdp:True,dith:0,atcv:False,rfrpo:True,rfrpn:Refraction,coma:15,ufog:True,aust:True,igpj:False,qofs:0,qpre:1,rntp:1,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,atwp:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False,fnsp:False,fnfb:False,fsmp:False;n:type:ShaderForge.SFN_Final,id:2865,x:35158,y:32442,varname:node_2865,prsc:2|diff-6343-OUT,spec-358-OUT,gloss-1813-OUT,normal-5964-RGB,emission-159-OUT,voffset-4387-XYZ;n:type:ShaderForge.SFN_Multiply,id:6343,x:32114,y:32712,varname:node_6343,prsc:2|A-7736-RGB,B-6665-RGB;n:type:ShaderForge.SFN_Color,id:6665,x:31921,y:32805,ptovrint:False,ptlb:Color,ptin:_Color,varname:_Color,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:0.5019608,c2:0.5019608,c3:0.5019608,c4:1;n:type:ShaderForge.SFN_Tex2d,id:7736,x:31921,y:32620,ptovrint:True,ptlb:Base Color,ptin:_MainTex,varname:_MainTex,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Tex2d,id:5964,x:32598,y:32746,ptovrint:True,ptlb:Normal Map,ptin:_BumpMap,varname:_BumpMap,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:3,isnm:True;n:type:ShaderForge.SFN_Slider,id:358,x:32250,y:32780,ptovrint:False,ptlb:Metallic,ptin:_Metallic,varname:node_358,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0,max:1;n:type:ShaderForge.SFN_Slider,id:1813,x:32250,y:32882,ptovrint:False,ptlb:Gloss,ptin:_Gloss,varname:_Metallic_copy,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0.8,max:1;n:type:ShaderForge.SFN_ScreenParameters,id:3043,x:32080,y:32908,varname:node_3043,prsc:2;n:type:ShaderForge.SFN_Multiply,id:159,x:32611,y:32957,varname:node_159,prsc:2|A-6414-RGB,B-4733-RGB;n:type:ShaderForge.SFN_Color,id:6414,x:32195,y:33039,ptovrint:False,ptlb:EmissiveColor,ptin:_EmissiveColor,varname:node_6414,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:0,c2:0,c3:0,c4:0;n:type:ShaderForge.SFN_Tex2d,id:4733,x:32407,y:33058,ptovrint:False,ptlb:Emissive,ptin:_Emissive,varname:node_4733,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:2,isnm:False;n:type:ShaderForge.SFN_FragmentPosition,id:8622,x:33203,y:33193,varname:node_8622,prsc:2;n:type:ShaderForge.SFN_Subtract,id:3267,x:33494,y:33261,varname:node_3267,prsc:2|A-8622-XYZ,B-9994-OUT;n:type:ShaderForge.SFN_ViewVector,id:9994,x:33203,y:33363,varname:node_9994,prsc:2;n:type:ShaderForge.SFN_ViewPosition,id:7755,x:33203,y:33503,varname:node_7755,prsc:2;n:type:ShaderForge.SFN_ComponentMask,id:2100,x:33675,y:33286,varname:node_2100,prsc:2,cc1:2,cc2:-1,cc3:-1,cc4:-1|IN-3267-OUT;n:type:ShaderForge.SFN_Power,id:767,x:33909,y:33335,varname:node_767,prsc:2|VAL-2100-OUT,EXP-8615-OUT;n:type:ShaderForge.SFN_Vector1,id:8615,x:33641,y:33521,varname:node_8615,prsc:2,v1:2;n:type:ShaderForge.SFN_ValueProperty,id:1637,x:33782,y:33210,ptovrint:False,ptlb:DepthDivider,ptin:_DepthDivider,varname:node_1637,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,v1:0.01;n:type:ShaderForge.SFN_ValueProperty,id:78,x:33718,y:33103,ptovrint:False,ptlb:CurveDepth,ptin:_CurveDepth,varname:node_78,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,v1:0.05;n:type:ShaderForge.SFN_Multiply,id:3367,x:34040,y:33109,varname:node_3367,prsc:2|A-78-OUT,B-1637-OUT;n:type:ShaderForge.SFN_Negate,id:1358,x:34250,y:33121,varname:node_1358,prsc:2|IN-3367-OUT;n:type:ShaderForge.SFN_Multiply,id:2585,x:34569,y:33158,varname:node_2585,prsc:2|A-1358-OUT,B-767-OUT;n:type:ShaderForge.SFN_ComponentMask,id:5049,x:34895,y:33243,varname:node_5049,prsc:2,cc1:0,cc2:0,cc3:-1,cc4:-1|IN-2585-OUT;n:type:ShaderForge.SFN_Add,id:6799,x:35014,y:33043,varname:node_6799,prsc:2|A-8622-XYZ,B-7776-OUT;n:type:ShaderForge.SFN_Transform,id:4387,x:35191,y:32939,varname:node_4387,prsc:2,tffrom:0,tfto:1|IN-6799-OUT;n:type:ShaderForge.SFN_Append,id:7776,x:34792,y:33118,varname:node_7776,prsc:2|A-1417-OUT,B-2585-OUT;n:type:ShaderForge.SFN_Vector1,id:1417,x:34657,y:33324,varname:node_1417,prsc:2,v1:1;n:type:ShaderForge.SFN_ValueProperty,id:4673,x:32705,y:33469,ptovrint:False,ptlb:CurveX_copy,ptin:_CurveX_copy,varname:_CurveX_copy,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,v1:0;proporder:5964-6665-7736-358-1813-6414-4733-1637-78;pass:END;sub:END;*/
 
-Shader "Shader Forge/Curved" {
+Shader "Shader Forge/CurvedTest" {
     Properties {
         _BumpMap ("Normal Map", 2D) = "bump" {}
         _Color ("Color", Color) = (0.5019608,0.5019608,0.5019608,1)
         _MainTex ("Base Color", 2D) = "white" {}
         _Metallic ("Metallic", Range(0, 1)) = 0
         _Gloss ("Gloss", Range(0, 1)) = 0.8
-        _Curve ("Curve", Float ) = 0.0005
         _EmissiveColor ("EmissiveColor", Color) = (0,0,0,0)
         _Emissive ("Emissive", 2D) = "black" {}
+        _DepthDivider ("DepthDivider", Float ) = 0.01
+        _CurveDepth ("CurveDepth", Float ) = 0.05
     }
     SubShader {
         Tags {
@@ -51,8 +52,9 @@ Shader "Shader Forge/Curved" {
                 UNITY_DEFINE_INSTANCED_PROP( float4, _Color)
                 UNITY_DEFINE_INSTANCED_PROP( float, _Metallic)
                 UNITY_DEFINE_INSTANCED_PROP( float, _Gloss)
-                UNITY_DEFINE_INSTANCED_PROP( float, _Curve)
                 UNITY_DEFINE_INSTANCED_PROP( float4, _EmissiveColor)
+                UNITY_DEFINE_INSTANCED_PROP( float, _DepthDivider)
+                UNITY_DEFINE_INSTANCED_PROP( float, _CurveDepth)
             UNITY_INSTANCING_BUFFER_END( Props )
             struct VertexInput {
                 UNITY_VERTEX_INPUT_INSTANCE_ID
@@ -97,10 +99,11 @@ Shader "Shader Forge/Curved" {
                 o.normalDir = UnityObjectToWorldNormal(v.normal);
                 o.tangentDir = normalize( mul( unity_ObjectToWorld, float4( v.tangent.xyz, 0.0 ) ).xyz );
                 o.bitangentDir = normalize(cross(o.normalDir, o.tangentDir) * v.tangent.w);
-                float _Curve_var = UNITY_ACCESS_INSTANCED_PROP( Props, _Curve );
-                float node_9173 = (mul(unity_ObjectToWorld, v.vertex).rgb-_WorldSpaceCameraPos).b;
-                float2 node_8980 = float2(1.0,((-1*_Curve_var)*pow(node_9173,2.0)));
-                v.vertex.xyz += mul( unity_WorldToObject, float4((mul(unity_ObjectToWorld, v.vertex).rgb+float3(node_8980,0.0)),0) ).xyz.rgb;
+                float3 viewDirection = normalize(_WorldSpaceCameraPos.xyz - mul(unity_ObjectToWorld, v.vertex).xyz);
+                float _CurveDepth_var = UNITY_ACCESS_INSTANCED_PROP( Props, _CurveDepth );
+                float _DepthDivider_var = UNITY_ACCESS_INSTANCED_PROP( Props, _DepthDivider );
+                float node_2585 = ((-1*(_CurveDepth_var*_DepthDivider_var))*pow((mul(unity_ObjectToWorld, v.vertex).rgb-viewDirection).b,2.0));
+                v.vertex.xyz += mul( unity_WorldToObject, float4((mul(unity_ObjectToWorld, v.vertex).rgb+float3(float2(1.0,node_2585),0.0)),0) ).xyz.rgb;
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
                 float3 lightColor = _LightColor0.rgb;
                 o.pos = UnityObjectToClipPos( v.vertex );
@@ -261,8 +264,9 @@ Shader "Shader Forge/Curved" {
                 UNITY_DEFINE_INSTANCED_PROP( float4, _Color)
                 UNITY_DEFINE_INSTANCED_PROP( float, _Metallic)
                 UNITY_DEFINE_INSTANCED_PROP( float, _Gloss)
-                UNITY_DEFINE_INSTANCED_PROP( float, _Curve)
                 UNITY_DEFINE_INSTANCED_PROP( float4, _EmissiveColor)
+                UNITY_DEFINE_INSTANCED_PROP( float, _DepthDivider)
+                UNITY_DEFINE_INSTANCED_PROP( float, _CurveDepth)
             UNITY_INSTANCING_BUFFER_END( Props )
             struct VertexInput {
                 UNITY_VERTEX_INPUT_INSTANCE_ID
@@ -296,10 +300,11 @@ Shader "Shader Forge/Curved" {
                 o.normalDir = UnityObjectToWorldNormal(v.normal);
                 o.tangentDir = normalize( mul( unity_ObjectToWorld, float4( v.tangent.xyz, 0.0 ) ).xyz );
                 o.bitangentDir = normalize(cross(o.normalDir, o.tangentDir) * v.tangent.w);
-                float _Curve_var = UNITY_ACCESS_INSTANCED_PROP( Props, _Curve );
-                float node_9173 = (mul(unity_ObjectToWorld, v.vertex).rgb-_WorldSpaceCameraPos).b;
-                float2 node_8980 = float2(1.0,((-1*_Curve_var)*pow(node_9173,2.0)));
-                v.vertex.xyz += mul( unity_WorldToObject, float4((mul(unity_ObjectToWorld, v.vertex).rgb+float3(node_8980,0.0)),0) ).xyz.rgb;
+                float3 viewDirection = normalize(_WorldSpaceCameraPos.xyz - mul(unity_ObjectToWorld, v.vertex).xyz);
+                float _CurveDepth_var = UNITY_ACCESS_INSTANCED_PROP( Props, _CurveDepth );
+                float _DepthDivider_var = UNITY_ACCESS_INSTANCED_PROP( Props, _DepthDivider );
+                float node_2585 = ((-1*(_CurveDepth_var*_DepthDivider_var))*pow((mul(unity_ObjectToWorld, v.vertex).rgb-viewDirection).b,2.0));
+                v.vertex.xyz += mul( unity_WorldToObject, float4((mul(unity_ObjectToWorld, v.vertex).rgb+float3(float2(1.0,node_2585),0.0)),0) ).xyz.rgb;
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
                 float3 lightColor = _LightColor0.rgb;
                 o.pos = UnityObjectToClipPos( v.vertex );
@@ -397,7 +402,8 @@ Shader "Shader Forge/Curved" {
             #pragma multi_compile_fog
             #pragma target 3.0
             UNITY_INSTANCING_BUFFER_START( Props )
-                UNITY_DEFINE_INSTANCED_PROP( float, _Curve)
+                UNITY_DEFINE_INSTANCED_PROP( float, _DepthDivider)
+                UNITY_DEFINE_INSTANCED_PROP( float, _CurveDepth)
             UNITY_INSTANCING_BUFFER_END( Props )
             struct VertexInput {
                 UNITY_VERTEX_INPUT_INSTANCE_ID
@@ -418,10 +424,11 @@ Shader "Shader Forge/Curved" {
                 UNITY_TRANSFER_INSTANCE_ID( v, o );
                 o.uv1 = v.texcoord1;
                 o.uv2 = v.texcoord2;
-                float _Curve_var = UNITY_ACCESS_INSTANCED_PROP( Props, _Curve );
-                float node_9173 = (mul(unity_ObjectToWorld, v.vertex).rgb-_WorldSpaceCameraPos).b;
-                float2 node_8980 = float2(1.0,((-1*_Curve_var)*pow(node_9173,2.0)));
-                v.vertex.xyz += mul( unity_WorldToObject, float4((mul(unity_ObjectToWorld, v.vertex).rgb+float3(node_8980,0.0)),0) ).xyz.rgb;
+                float3 viewDirection = normalize(_WorldSpaceCameraPos.xyz - mul(unity_ObjectToWorld, v.vertex).xyz);
+                float _CurveDepth_var = UNITY_ACCESS_INSTANCED_PROP( Props, _CurveDepth );
+                float _DepthDivider_var = UNITY_ACCESS_INSTANCED_PROP( Props, _DepthDivider );
+                float node_2585 = ((-1*(_CurveDepth_var*_DepthDivider_var))*pow((mul(unity_ObjectToWorld, v.vertex).rgb-viewDirection).b,2.0));
+                v.vertex.xyz += mul( unity_WorldToObject, float4((mul(unity_ObjectToWorld, v.vertex).rgb+float3(float2(1.0,node_2585),0.0)),0) ).xyz.rgb;
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
                 o.pos = UnityObjectToClipPos( v.vertex );
                 TRANSFER_SHADOW_CASTER(o)
@@ -466,8 +473,9 @@ Shader "Shader Forge/Curved" {
                 UNITY_DEFINE_INSTANCED_PROP( float4, _Color)
                 UNITY_DEFINE_INSTANCED_PROP( float, _Metallic)
                 UNITY_DEFINE_INSTANCED_PROP( float, _Gloss)
-                UNITY_DEFINE_INSTANCED_PROP( float, _Curve)
                 UNITY_DEFINE_INSTANCED_PROP( float4, _EmissiveColor)
+                UNITY_DEFINE_INSTANCED_PROP( float, _DepthDivider)
+                UNITY_DEFINE_INSTANCED_PROP( float, _CurveDepth)
             UNITY_INSTANCING_BUFFER_END( Props )
             struct VertexInput {
                 UNITY_VERTEX_INPUT_INSTANCE_ID
@@ -491,10 +499,11 @@ Shader "Shader Forge/Curved" {
                 o.uv0 = v.texcoord0;
                 o.uv1 = v.texcoord1;
                 o.uv2 = v.texcoord2;
-                float _Curve_var = UNITY_ACCESS_INSTANCED_PROP( Props, _Curve );
-                float node_9173 = (mul(unity_ObjectToWorld, v.vertex).rgb-_WorldSpaceCameraPos).b;
-                float2 node_8980 = float2(1.0,((-1*_Curve_var)*pow(node_9173,2.0)));
-                v.vertex.xyz += mul( unity_WorldToObject, float4((mul(unity_ObjectToWorld, v.vertex).rgb+float3(node_8980,0.0)),0) ).xyz.rgb;
+                float3 viewDirection = normalize(_WorldSpaceCameraPos.xyz - mul(unity_ObjectToWorld, v.vertex).xyz);
+                float _CurveDepth_var = UNITY_ACCESS_INSTANCED_PROP( Props, _CurveDepth );
+                float _DepthDivider_var = UNITY_ACCESS_INSTANCED_PROP( Props, _DepthDivider );
+                float node_2585 = ((-1*(_CurveDepth_var*_DepthDivider_var))*pow((mul(unity_ObjectToWorld, v.vertex).rgb-viewDirection).b,2.0));
+                v.vertex.xyz += mul( unity_WorldToObject, float4((mul(unity_ObjectToWorld, v.vertex).rgb+float3(float2(1.0,node_2585),0.0)),0) ).xyz.rgb;
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
                 o.pos = UnityMetaVertexPosition(v.vertex, v.texcoord1.xy, v.texcoord2.xy, unity_LightmapST, unity_DynamicLightmapST );
                 return o;

@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: lambert1
-  m_Shader: {fileID: 4800000, guid: 83f251d5ba6255546baa5f4bf4f9ea37, type: 3}
+  m_Shader: {fileID: 4800000, guid: 4961efe3a40b9364983fb73e12ccde2f, type: 3}
   m_ShaderKeywords: _EMISSION _METALLICGLOSSMAP _NORMALMAP _PARALLAXMAP
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
@@ -78,7 +78,9 @@ Material:
     m_Floats:
     - _BumpScale: 1
     - _Curve: 0.0002
+    - _CurveDepth: 0.005
     - _Cutoff: 0.5
+    - _DepthDivider: 0.1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _FadeDistance: 0
