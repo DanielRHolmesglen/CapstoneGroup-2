@@ -86,12 +86,13 @@ public class MovingController : MonoBehaviour
 			if (movingLane == -1)
 			{
 				movingLane = 0;
-				//Invoke("ResetHasMoved", 1);
 			}
 			Invoke("ResetHasMoved", 1);
 			hasMoved = true;
 		}
+
 		if (vrInputs.x == 0) hasMoved = false;
+
 		// calculate where the car should be in the future
 		Vector3 targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;
 
