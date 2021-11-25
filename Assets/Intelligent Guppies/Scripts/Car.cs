@@ -18,6 +18,5 @@ public class Car : MonoBehaviour
 	[HideInInspector]
 	public float mass = 0f;
 
-	public float speedChanged = 30f;
 	public float carSpeed = 25f;
 }
