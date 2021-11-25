@@ -132,6 +132,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Altar
       objectReference: {fileID: 0}
+    - target: {fileID: 5263508695487751355, guid: 03d9b2df49f4272459b639cdb95bc012,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9174083806551660200, guid: 03d9b2df49f4272459b639cdb95bc012,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -463,6 +468,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AlterCylinder
       objectReference: {fileID: 0}
+    - target: {fileID: 3493723744469802259, guid: 41e118581c4ce324a810529b8343671b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2745313677490375975, guid: 41e118581c4ce324a810529b8343671b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -701,7 +711,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &72963154
 Transform:
   m_ObjectHideFlags: 0
@@ -753,7 +763,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &139341313
 Transform:
   m_ObjectHideFlags: 0
@@ -1011,6 +1021,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Altar
+      objectReference: {fileID: 0}
+    - target: {fileID: 5263508695487751355, guid: 03d9b2df49f4272459b639cdb95bc012,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9174083806551660200, guid: 03d9b2df49f4272459b639cdb95bc012,
         type: 3}
@@ -1566,7 +1581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &311919075
 Transform:
   m_ObjectHideFlags: 0
@@ -2104,6 +2119,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AlterCylinder
       objectReference: {fileID: 0}
+    - target: {fileID: 3493723744469802259, guid: 41e118581c4ce324a810529b8343671b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2745313677490375975, guid: 41e118581c4ce324a810529b8343671b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2447,6 +2467,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AlterCylinder
       objectReference: {fileID: 0}
+    - target: {fileID: 3493723744469802259, guid: 41e118581c4ce324a810529b8343671b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2745313677490375975, guid: 41e118581c4ce324a810529b8343671b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2587,6 +2612,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Altar
+      objectReference: {fileID: 0}
+    - target: {fileID: 5263508695487751355, guid: 03d9b2df49f4272459b639cdb95bc012,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9174083806551660200, guid: 03d9b2df49f4272459b639cdb95bc012,
         type: 3}
@@ -2911,6 +2941,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AltarCube
       objectReference: {fileID: 0}
+    - target: {fileID: 1552549069290179018, guid: 6d87bbe60eb28ea4699fe7310869e4b4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4786737721910416256, guid: 6d87bbe60eb28ea4699fe7310869e4b4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3127,6 +3162,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Altar
       objectReference: {fileID: 0}
+    - target: {fileID: 5263508695487751355, guid: 03d9b2df49f4272459b639cdb95bc012,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9174083806551660200, guid: 03d9b2df49f4272459b639cdb95bc012,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3205,7 +3245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &642129818
 Transform:
   m_ObjectHideFlags: 0
@@ -3460,6 +3500,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AlterCylinder
       objectReference: {fileID: 0}
+    - target: {fileID: 3493723744469802259, guid: 41e118581c4ce324a810529b8343671b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2745313677490375975, guid: 41e118581c4ce324a810529b8343671b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3583,7 +3628,7 @@ PrefabInstance:
     - target: {fileID: 7860508088337058081, guid: 3003528b954661244b0b5070d52b5b57,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 181.07
+      value: 119.87001
       objectReference: {fileID: 0}
     - target: {fileID: 7860508088337058081, guid: 3003528b954661244b0b5070d52b5b57,
         type: 3}
@@ -3987,6 +4032,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AltarCube
       objectReference: {fileID: 0}
+    - target: {fileID: 1552549069290179018, guid: 6d87bbe60eb28ea4699fe7310869e4b4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4786737721910416256, guid: 6d87bbe60eb28ea4699fe7310869e4b4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4146,6 +4196,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AltarCube
+      objectReference: {fileID: 0}
+    - target: {fileID: 1552549069290179018, guid: 6d87bbe60eb28ea4699fe7310869e4b4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4786737721910416256, guid: 6d87bbe60eb28ea4699fe7310869e4b4,
         type: 3}
@@ -4745,6 +4800,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AlterCylinder
       objectReference: {fileID: 0}
+    - target: {fileID: 3493723744469802259, guid: 41e118581c4ce324a810529b8343671b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2745313677490375975, guid: 41e118581c4ce324a810529b8343671b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4982,6 +5042,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Altar
+      objectReference: {fileID: 0}
+    - target: {fileID: 5263508695487751355, guid: 03d9b2df49f4272459b639cdb95bc012,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9174083806551660200, guid: 03d9b2df49f4272459b639cdb95bc012,
         type: 3}
@@ -5450,6 +5515,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AltarCube
       objectReference: {fileID: 0}
+    - target: {fileID: 1552549069290179018, guid: 6d87bbe60eb28ea4699fe7310869e4b4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4786737721910416256, guid: 6d87bbe60eb28ea4699fe7310869e4b4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5613,7 +5683,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1348978379
 Transform:
   m_ObjectHideFlags: 0
@@ -5710,6 +5780,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AltarCube
+      objectReference: {fileID: 0}
+    - target: {fileID: 1552549069290179018, guid: 6d87bbe60eb28ea4699fe7310869e4b4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4786737721910416256, guid: 6d87bbe60eb28ea4699fe7310869e4b4,
         type: 3}
@@ -5940,6 +6015,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AlterCylinder
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493723744469802259, guid: 41e118581c4ce324a810529b8343671b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2745313677490375975, guid: 41e118581c4ce324a810529b8343671b,
         type: 3}
@@ -6339,6 +6419,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Altar
       objectReference: {fileID: 0}
+    - target: {fileID: 5263508695487751355, guid: 03d9b2df49f4272459b639cdb95bc012,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9174083806551660200, guid: 03d9b2df49f4272459b639cdb95bc012,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6534,7 +6619,7 @@ PrefabInstance:
     - target: {fileID: 9170027790000430300, guid: c423394552c280749b6714a6197bf1ee,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 212.8
+      value: 151.6
       objectReference: {fileID: 0}
     - target: {fileID: 9170027790000430300, guid: c423394552c280749b6714a6197bf1ee,
         type: 3}
@@ -7705,6 +7790,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AltarCube
       objectReference: {fileID: 0}
+    - target: {fileID: 1552549069290179018, guid: 6d87bbe60eb28ea4699fe7310869e4b4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4786737721910416256, guid: 6d87bbe60eb28ea4699fe7310869e4b4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8032,6 +8122,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AltarCube
       objectReference: {fileID: 0}
+    - target: {fileID: 1552549069290179018, guid: 6d87bbe60eb28ea4699fe7310869e4b4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4786737721910416256, guid: 6d87bbe60eb28ea4699fe7310869e4b4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8292,6 +8387,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Altar
       objectReference: {fileID: 0}
+    - target: {fileID: 5263508695487751355, guid: 03d9b2df49f4272459b639cdb95bc012,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9174083806551660200, guid: 03d9b2df49f4272459b639cdb95bc012,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8467,6 +8567,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AlterCylinder
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493723744469802259, guid: 41e118581c4ce324a810529b8343671b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2745313677490375975, guid: 41e118581c4ce324a810529b8343671b,
         type: 3}
@@ -8693,7 +8798,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1974955783
 Transform:
   m_ObjectHideFlags: 0
@@ -8794,7 +8899,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2001798731
 Transform:
   m_ObjectHideFlags: 0
@@ -9204,7 +9309,7 @@ PrefabInstance:
     - target: {fileID: 9170027790000430300, guid: c423394552c280749b6714a6197bf1ee,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 212.8
+      value: 151.6
       objectReference: {fileID: 0}
     - target: {fileID: 9170027790000430300, guid: c423394552c280749b6714a6197bf1ee,
         type: 3}
@@ -9291,6 +9396,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Altar
+      objectReference: {fileID: 0}
+    - target: {fileID: 5263508695487751355, guid: 03d9b2df49f4272459b639cdb95bc012,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9174083806551660200, guid: 03d9b2df49f4272459b639cdb95bc012,
         type: 3}
@@ -9380,7 +9490,7 @@ PrefabInstance:
     - target: {fileID: 9170027790000430300, guid: c423394552c280749b6714a6197bf1ee,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 212.8
+      value: 151.6
       objectReference: {fileID: 0}
     - target: {fileID: 9170027790000430300, guid: c423394552c280749b6714a6197bf1ee,
         type: 3}
@@ -9743,6 +9853,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AltarCube
+      objectReference: {fileID: 0}
+    - target: {fileID: 1552549069290179018, guid: 6d87bbe60eb28ea4699fe7310869e4b4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4786737721910416256, guid: 6d87bbe60eb28ea4699fe7310869e4b4,
         type: 3}
@@ -10985,6 +11100,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AlterCylinder
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493723744469802259, guid: 41e118581c4ce324a810529b8343671b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2745313677490375975, guid: 41e118581c4ce324a810529b8343671b,
         type: 3}
