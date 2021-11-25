@@ -6,12 +6,17 @@ using UnityEngine;
 [RequireComponent(typeof(MeshCollider))]
 public class CollectableItem : MonoBehaviour, IInteractable
 {
-    public Transform spawnPoint;
-    public GameObject objectToBeSpawned;
+    //public Transform spawnPoint;
+    //public GameObject objectToBeSpawned;
+    public List<GameObject> spawnItem = new List<GameObject>();
 
     void Start()
     {
         GetComponent<MeshCollider>().isTrigger = true;
+        foreach (var item in spawnItem)
+        {
+            item.SetActive(false);
+        }
     }
 
     public void OnTriggerEnter(Collider _other)
@@ -27,6 +32,7 @@ public class CollectableItem : MonoBehaviour, IInteractable
 
     public void SpawnObject()
     {
-        Instantiate(objectToBeSpawned, spawnPoint.position, spawnPoint.rotation);
+        var randomSpawn = spawnItem[Random.Range(0, spawnItem.Count)];
+        randomSpawn.SetActive(true);
     }
 }
