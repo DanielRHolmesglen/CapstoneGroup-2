@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingObject : MonoBehaviour
+public class CarDirection : MonoBehaviour
 {
 	/* Set up a number for moving object to specific lane
 	 * 0 = left, 1 = middle, 2 = right
@@ -14,12 +14,12 @@ public class MovingObject : MonoBehaviour
 	public float laneDistance = 3.5f;
 	private Car _car;
 	private Vector3 moveDirection;
-	private MovingController _movingController;
+	private CarController _carController;
 
 	void Start()
-    {
+	{
 		_car = gameObject.GetComponentInChildren<Car>();
-		_movingController = gameObject.GetComponent<MovingController>();
+		_carController = gameObject.GetComponent<CarController>();
 	}
 
 	void Update()
@@ -29,7 +29,7 @@ public class MovingObject : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		if (!_movingController.isCarMoved) return;
+		if (!_carController.isCarMoved) return;
 		transform.Translate(moveDirection * Time.fixedDeltaTime);
 	}
 }

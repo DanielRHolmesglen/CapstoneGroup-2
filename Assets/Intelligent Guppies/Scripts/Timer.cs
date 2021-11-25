@@ -10,13 +10,13 @@ public class Timer : MonoBehaviour
     public TextMesh txtTimer;
     public Color32 txtColor, txtColorWhite;
     private float minute, second, millisecond;
-    private MovingController _movingController;
+    private CarController _carController;
     private Transform cameraTarget;
     private Vector3 cameraOffset;
 
     void Start()
     {
-        _movingController = GameObject.Find("Player").GetComponent<MovingController>();
+        _carController = GameObject.Find("Player").GetComponent<CarController>();
         txtTimer = GameObject.Find("Timer").GetComponent<TextMesh>();
         txtColor = new Color32(255, 255, 255, 0);
         txtColorWhite = new Color32(255, 255, 255, 255);
@@ -28,7 +28,7 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
-        if (!_movingController.isCarMoved) return;
+        if (!_carController.isCarMoved) return;
 
         Vector3 cameraPosition = new Vector3(transform.position.x, transform.position.y,
             cameraOffset.z + cameraTarget.position.z);
