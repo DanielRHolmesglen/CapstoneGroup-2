@@ -21,13 +21,22 @@ public class CarController : MonoBehaviour
 	private float laneDistance;
 	public bool isCarMoved, hasMoved;
 	public Text txtTriggerToStart, txtHowToPlay;
+	private GameObject howToPlayPanel;
 
 	void Start()
 	{
 		isCarMoved = false;
 		hasMoved = false;
+
+		howToPlayPanel = GameObject.Find("TriggerToStart");
 		txtTriggerToStart = GameObject.Find("TriggerToStart").GetComponent<Text>();
-		txtTriggerToStart.text = "Trigger to start";
+		txtTriggerToStart.text = "Welcome To Light Rush!!" 
+								+ "\nStraight line of road that give you more than a fast." 
+								+ "\nCollect thing to see what happens to the world while avoid obstacle slowing you down." 
+								+ "\nEach selection can change anything around you, so choose wisely."
+								+ "\n\nController: Thumbstick"
+								+ "\n\nAre you ready!!!"
+								+ "\nTrigger to start";
 		//txtHowToPlay = GameObject.Find("HowToPlay").GetComponent<Text>();
 		//txtHowToPlay.text = "Press \"A\" To Left and \"X\" To Right";
 		_carDirection = gameObject.GetComponentInParent<CarDirection>();
@@ -57,13 +66,14 @@ public class CarController : MonoBehaviour
 		if (Input.GetKey(KeyCode.Space) || primaryInput.GetButtonDown(VRButton.Trigger))
 		{
 			isCarMoved = true;
-			Destroy(txtTriggerToStart);
+			//Destroy(txtTriggerToStart);
+			Destroy(howToPlayPanel);
 		}
 
 		if (!isCarMoved) return;
 
 		// get the input on which lane we should be => right
-		/*
+		
 		if (Input.GetKeyDown(KeyCode.D) || vrInputs.x > 0 && !hasMoved)
 		{
 			movingLane++;
@@ -88,8 +98,8 @@ public class CarController : MonoBehaviour
 		}
 
 		if (vrInputs.x == 0) hasMoved = false;
-		*/
 
+		/*
 		if (Input.GetKeyDown(KeyCode.D))
 		{
 			movingLane++;
@@ -107,6 +117,7 @@ public class CarController : MonoBehaviour
 				movingLane = 0;
 			}
 		}
+		*/
 
 		// calculate where the car should be in the future
 		Vector3 targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;
