@@ -4,7 +4,7 @@ using UnityEngine;
 
 //[RequireComponent(typeof(SphereCollider))]
 [RequireComponent(typeof(MeshCollider))]
-public class CollectableItem : MonoBehaviour, IInteractable
+public class ItemSpawn : MonoBehaviour, IInteractable
 {
     //public Transform spawnPoint;
     //public GameObject objectToBeSpawned;

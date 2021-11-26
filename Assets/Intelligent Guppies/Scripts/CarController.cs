@@ -63,7 +63,8 @@ public class CarController : MonoBehaviour
 		if (!isCarMoved) return;
 
 		// get the input on which lane we should be => right
-		/*if (Input.GetKeyDown(KeyCode.D) || vrInputs.x > 0 && !hasMoved)
+		/*
+		if (Input.GetKeyDown(KeyCode.D) || vrInputs.x > 0 && !hasMoved)
 		{
 			movingLane++;
 			if (movingLane == 3)
@@ -72,10 +73,10 @@ public class CarController : MonoBehaviour
 			}
 			Invoke("ResetHasMoved", 1);
 			hasMoved = true;
-		}*/
+		}
 
 		// => left left
-		/*if (Input.GetKeyDown(KeyCode.A) || vrInputs.x < 0 && !hasMoved)
+		if (Input.GetKeyDown(KeyCode.A) || vrInputs.x < 0 && !hasMoved)
 		{
 			movingLane--;
 			if (movingLane == -1)
@@ -86,7 +87,8 @@ public class CarController : MonoBehaviour
 			hasMoved = true;
 		}
 
-		if (vrInputs.x == 0) hasMoved = false;*/
+		if (vrInputs.x == 0) hasMoved = false;
+		*/
 
 		if (Input.GetKeyDown(KeyCode.D))
 		{

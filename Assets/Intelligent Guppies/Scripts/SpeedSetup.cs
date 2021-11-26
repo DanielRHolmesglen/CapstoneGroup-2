@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(SphereCollider))]
 public class SpeedSetup : MonoBehaviour
 {
-    GameObject collectedEffect;
+    public GameObject collectedEffect;
     private float currentCarSpeed;
     private List<float> speedUp = new List<float> { 20f, 30f, 40f };
     private List<float> speedDown = new List<float> { 15f, 20f, 25f };
@@ -14,7 +14,6 @@ public class SpeedSetup : MonoBehaviour
     void Start()
     {
         GetComponent<SphereCollider>().isTrigger = true;
-        collectedEffect = GameObject.Find("SmallExplosionEffect");
         collectedEffect.SetActive(false);
     }
 
