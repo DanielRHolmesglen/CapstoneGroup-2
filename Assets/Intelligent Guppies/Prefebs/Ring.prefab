@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 151289569053026026}
   - component: {fileID: 5847348405594708499}
   - component: {fileID: 1940376728993766797}
-  - component: {fileID: -5649498065684240414}
+  - component: {fileID: 9187441806707785524}
   m_Layer: 0
   m_Name: Ring
   m_TagString: Untagged
@@ -93,7 +93,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 5876722744731809403, guid: 922aa374dbd2fb9418433306517c7eac, type: 3}
---- !u!114 &-5649498065684240414
+--- !u!114 &9187441806707785524
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,9 +102,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5267279070415646415}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4513f8f951f3e8241ba68acd814ec433, type: 3}
+  m_Script: {fileID: 11500000, guid: dd25fa7543137834f9eb0fad690caf0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
-  objectToBeSpawned: {fileID: 2573857415788044569, guid: 3bddf729663038847866037e2f6146ae,
-    type: 3}
+  spawnItem: []
