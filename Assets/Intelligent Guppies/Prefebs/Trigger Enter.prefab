@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7860508088337058081}
   - component: {fileID: 7860508088337058087}
-  - component: {fileID: 7860508088337058080}
+  - component: {fileID: 6994455752447693099}
   m_Layer: 0
   m_Name: Trigger Enter
   m_TagString: Untagged
@@ -45,7 +45,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7860508088337058080
+--- !u!114 &6994455752447693099
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,7 +57,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae99de11a9cb8bb4699071fba6604f00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnItem:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  spawnItem: []

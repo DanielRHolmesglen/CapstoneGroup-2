@@ -26,8 +26,23 @@ public class MarkTrigger : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawCube(transform.position, transform.localScale);
+        if (gameObject.name == "RingTrigger")
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawCube(transform.position, transform.localScale);
+        }
+
+        if (gameObject.name == "SpeedTrigger")
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawCube(transform.position, transform.localScale);
+        }
+
+        if (gameObject.name == "ObstacleTrigger")
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawCube(transform.position, transform.localScale);
+        }
     }
 
     void Activate()

@@ -7,14 +7,16 @@ public class SpeedSetup : MonoBehaviour
 {
     public GameObject collectedEffect;
     private float currentCarSpeed;
-    private List<float> speedUp = new List<float> { 20f, 30f, 40f };
-    private List<float> speedDown = new List<float> { 15f, 20f, 25f };
+    private List<float> speedUp = new List<float> { 10f, 12f, 15f };
+    private List<float> speedDown = new List<float> { 5f, 7f, 9f };
     private float turbo = 50f;
+    private AudioSource sound;
 
     void Start()
     {
         GetComponent<SphereCollider>().isTrigger = true;
         collectedEffect.SetActive(false);
+        sound = GetComponent<AudioSource>();
     }
 
     public void OnTriggerEnter(Collider _other)
@@ -24,6 +26,7 @@ public class SpeedSetup : MonoBehaviour
             if (gameObject.name == "Boost")
             {
                 Debug.Log(gameObject.name);
+                sound.Play();
                 SpeedUp(_other);
                 gameObject.SetActive(false);
                 Debug.Log(collectedEffect);
@@ -37,6 +40,7 @@ public class SpeedSetup : MonoBehaviour
             if (gameObject.name == "Slow")
             {
                 Debug.Log(gameObject.name);
+                sound.Play();
                 SpeedDown(_other);
                 gameObject.SetActive(false);
             }
@@ -47,6 +51,7 @@ public class SpeedSetup : MonoBehaviour
             if (gameObject.name == "Turbo")
             {
                 Debug.Log(gameObject.name);
+                sound.Play();
                 SpeedUp(_other);
                 gameObject.SetActive(false);
             }
