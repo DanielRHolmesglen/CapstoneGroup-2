@@ -6,18 +6,18 @@ using UnityEngine;
 public class ItemObstacle : MonoBehaviour
 {
     private float currentCarSpeed;
-    private float speedDown = 5f;
-
+    private float speedDown = 1f;
 
     void Start()
     {
-        //GetComponent<MeshCollider>().isTrigger = true;
+        GetComponent<MeshCollider>().isTrigger = true;
     }
 
     public void OnTriggerEnter(Collider _other)
     {
-        if (_other.gameObject)
+        if (_other.gameObject.name == "Car")
         {
+            Debug.Log("here.................................");
             SpeedDown(_other);
             gameObject.SetActive(false);
         }
@@ -28,6 +28,8 @@ public class ItemObstacle : MonoBehaviour
         Car carSpeed = _car.GetComponent<Car>();
 
         currentCarSpeed = carSpeed.carSpeed;
+
+        Debug.Log("currentCarSpeed");
         currentCarSpeed -= speedDown;
         carSpeed.carSpeed = currentCarSpeed;
     }
