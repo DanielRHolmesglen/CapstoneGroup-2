@@ -74,7 +74,7 @@ public class CarController : MonoBehaviour
 		if (!isCarMoved) return;
 
 		// get the input on which lane we should be => right
-/*		
+
 		if (Input.GetKeyDown(KeyCode.D) || vrInputs.x > 0 && !hasMoved)
 		{
 			movingLane++;
@@ -98,9 +98,9 @@ public class CarController : MonoBehaviour
 			hasMoved = true;
 		}
 
-		if (vrInputs.x == 0) hasMoved = false;					*/
+		if (vrInputs.x == 0) hasMoved = false;					
 
-		
+		/*
 		if (Input.GetKeyDown(KeyCode.D))
 		{
 			movingLane++;
@@ -118,7 +118,8 @@ public class CarController : MonoBehaviour
 				movingLane = 0;
 			}
 		}
-		
+		*/
+
 		// calculate where the car should be in the future
 		Vector3 targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;
 
